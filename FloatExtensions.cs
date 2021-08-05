@@ -6,7 +6,7 @@ namespace Flintor
     /// Float extensions which provide additional functionality for <c>float</c> typed variables.
     /// </summary>
     // todo: add function attributes similar to Mathf functions such as [FreeFunction(IsThreadSafe = true)]
-    // todo: Mathf.Min, Mathf.Max, Mathf.LerpAngle, Mathf.LerpClamped
+    // todo: Mathf.Min, Mathf.Max, Mathf.LerpAngle, Mathf.LerpClamped, Mathf.FloatToHalf, Mathf.HalfToFloat, Mathf.GammaToLinearSpace, Mathf.LinearToGammaSpace
     // todo: documentation
     public static class FloatExtensions
     {
@@ -243,6 +243,15 @@ namespace Flintor
         /// <param name="maxDelta"></param>
         /// <returns></returns>
         public static float MoveTowards(this float value, float target, float maxDelta) => Mathf.MoveTowards(value, target, maxDelta);
+        
+        /// <summary>
+        /// todo: documentation
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="target"></param>
+        /// <param name="maxDelta"></param>
+        /// <returns></returns>
+        public static float MoveTowardsAngle(this float value, float target, float maxDelta) => Mathf.MoveTowardsAngle(value, target, maxDelta);
 
         /// <summary>
         /// todo: documentation
@@ -372,8 +381,43 @@ namespace Flintor
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
+        /// <param name="target"></param>
+        /// <param name="currentVelocity"></param>
+        /// <param name="smoothTime"></param>
         /// <returns></returns>
-        public static float SmoothStep(this float value) => Mathf.Sin(value);
+        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime) => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime);
+
+        /// <summary>
+        /// todo: documentation
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="target"></param>
+        /// <param name="currentVelocity"></param>
+        /// <param name="smoothTime"></param>
+        /// <param name="maxSpeed"></param>
+        /// <returns></returns>
+        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed);
+
+        /// <summary>
+        /// todo: documentation
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="target"></param>
+        /// <param name="currentVelocity"></param>
+        /// <param name="smoothTime"></param>
+        /// <param name="maxSpeed"></param>
+        /// <param name="deltaTime"></param>
+        /// <returns></returns>
+        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
+
+        /// <summary>
+        /// todo: documentation
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="to"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public static float SmoothStep(this float value, float to, float time) => Mathf.SmoothStep(value, to, time);
 
         /// <summary>
         ///     Calculates the square root of this <see cref="float"/> using <see cref="Mathf.Sqrt"/>.
