@@ -55,5 +55,5 @@ Debug.Log(myVector3.Abs());
 public static int RoundToInt(this float value) => Mathf.RoundToInt(value);
 ```
 
-The function would then appear like this within JetBrains Rider:
+The function would then appear like this within JetBrains Rider: <br>
 ![Documentation Example](https://i.imgur.com/4aeRhiw.png)
