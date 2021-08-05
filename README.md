@@ -1,2 +1,2 @@
-# ReFloat
-Helpful float extensions for Unity development
+# Flintex
+Helpful float and int extensions for Unity development.
