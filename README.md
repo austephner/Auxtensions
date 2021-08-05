@@ -12,7 +12,7 @@ Helpful C# `float`, `int`, and `Vector3`/`Vector2` extensions for Unity developm
 2. Import the Flintex namespace
 
 ```c#
-using Flintex;
+using Flintor;
 ```
 
 3. Access `int`, `float`, and `Vector2`/`Vector3` extension methods as needed.
