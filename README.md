@@ -18,9 +18,9 @@ using Flintor;
 3. Access `int`, `float`, and `Vector2`/`Vector3` extension methods as needed.
 
 ```c#
-// TODO: do something to an int
+// Find the closest power of 2 to an integer.
 var myInt = 100;
-Debug.Log(myInt.Something());
+Debug.Log(myInt.ClosestPowerOfTwo());
 
 // Round a float value to an integer.
 var myFloat = 1.71248f;
