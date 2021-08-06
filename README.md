@@ -1,21 +1,21 @@
-# Flintor
+# Auxtensions
 ### Summary
-Helpful C# `float`, `int`, and `Vector3`/`Vector2` extensions for Unity development.
+Helpful extensions and utils for C# Unity development.
 
 ### Features
 * Extensions for common types that use Unity's `Mathf` class
-* Additional extension functions that are useful
+* Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
 * Full documentation including examples
 
 ### Usage
 1. Download the repository into your `Assets` folder (if downloading from Git).
-2. Import the Flintor namespace in any C# file.
+2. Import the Auxtensions namespace in any C# file.
 
 ```c#
-using Flintor;
+using Auxtensions;
 ```
 
-3. Access `int`, `float`, and `Vector2`/`Vector3` extension methods as needed.
+3. Access extensions or util classes as needed
 
 ```c#
 // Find the closest power of 2 to an integer.
@@ -39,7 +39,8 @@ Debug.Log(myVector3.Abs());
 2. <i>Try to</i> fully document and comment all functions. See below for an example.
 3. Code must go through pull requests before being merged. 
 4. Commits must list all changes to the codebase separated by commas.
-5. Alphabetize functions
+5. Alphabetize functions.
+6. Add your name to the contributors list along with any links you'd like to share!
 
 #### Documentation Example
 * Summary tag
