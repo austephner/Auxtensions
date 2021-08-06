@@ -44,7 +44,7 @@ Debug.Log(myVector3.Abs());
 #### Documentation Example
 * Summary tag
 * Tags for all parameters
-* Uses "<see>" with a `cref` reference to other functions or code
+* Uses "\<see ...>" tags with a `cref` reference to other functions or code
 * Returns tag
 * Example tag
 ```c#
