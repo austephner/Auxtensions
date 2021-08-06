@@ -1,13 +1,13 @@
 # Flintor
-## Summary
+### Summary
 Helpful C# `float`, `int`, and `Vector3`/`Vector2` extensions for Unity development.
 
-## Features
+### Features
 * Extensions for common types that use Unity's `Mathf` class
 * Additional extension functions that are useful
 * Full documentation including examples
 
-## Usage
+### Usage
 1. Download the repository into your `Assets` folder (if downloading from Git)
 2. Import the Flintex namespace
 
@@ -34,14 +34,14 @@ Debug.Log(myVector3.Abs());
 4. ???
 5. Profit
 
-## Contribution Rules
+### Contribution Rules
 1. Code must follow formatting patterns of the existing codebase to retain consistency.
 2. <i>Try to</i> fully document and comment all functions. See below for an example.
 3. Code must go through pull requests before being merged. 
 4. Commits must list all changes to the codebase separated by commas.
 5. Alphabetize functions
 
-### Documentation Example
+#### Documentation Example
 * Summary tag
 * Tags for all parameters
 * Uses "<see>" with a `cref` reference to other functions or code
@@ -66,5 +66,5 @@ public static int RoundToInt(this float value) => Mathf.RoundToInt(value);
 The function would then appear like this within JetBrains Rider: <br>
 ![Documentation Example](https://i.imgur.com/4aeRhiw.png)
 
-### Contributors & Credits
+#### Contributors & Credits
 * Austin Renner ([website](https://www.austephner.com/), [GitHub](https://github.com/austephner))
