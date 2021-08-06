@@ -8,8 +8,8 @@ Helpful C# `float`, `int`, and `Vector3`/`Vector2` extensions for Unity developm
 * Full documentation including examples
 
 ### Usage
-1. Download the repository into your `Assets` folder (if downloading from Git)
-2. Import the Flintex namespace
+1. Download the repository into your `Assets` folder (if downloading from Git).
+2. Import the Flintor namespace in any C# file.
 
 ```c#
 using Flintor;

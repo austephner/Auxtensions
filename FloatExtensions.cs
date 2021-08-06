@@ -13,47 +13,75 @@ namespace Flintor
         #region Mathf Functions
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the absolute value of this <see cref="float"/> using <see cref="Mathf.Abs"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The absolute value of the given <see cref="float"/>.
+        /// </returns>
         public static float Abs(this float value) => Mathf.Abs(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the arc cosine of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Acos"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The arc cosine of this <see cref="float"/>.
+        /// </returns>
         public static float Acos(this float value) => Mathf.Acos(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Determines if this <see cref="float"/> is similar to the given <see cref="approximation"/> <see cref="float"/>. 
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="approximation"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="approximation">
+        ///     The <see cref="float"/> value to compare against this <see cref="float"/>. 
+        /// </param>
+        /// <returns>
+        ///     <c>True</c> if this value is similar to the given <see cref="approximation"/>, otherwise <c>false</c>.
+        /// </returns>
         public static bool Approximately(this float value, float approximation) => Mathf.Approximately(value, approximation); 
 
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the arc sine of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Sin"/>/
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The arc sine of this <see cref="float"/>.
+        /// </returns>
         public static float Asin(this float value) => Mathf.Asin(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the arc tangent of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Atan"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The arc tangent of this <see cref="float"/>.
+        /// </returns>
         public static float Atan(this float value) => Mathf.Atan(value);
 
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the radian angles of the arc tangent between this <see cref="float"/> <c>x</c> value given another <see cref="y"/> value.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="y">
+        ///     The <c>y</c> value used to calculate an arc tangent.
+        /// </param>
+        /// <returns>
+        ///     A degree in radians.
+        /// </returns>
         public static float Atan2(this float value, float y) => Mathf.Atan2(value, y);
 
         /// <summary>
@@ -85,26 +113,42 @@ namespace Flintor
         public static int CeilToInt(this float value) => Mathf.CeilToInt(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Clamps this <see cref="float"/> between a <see cref="min"/> and <see cref="max"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="min">
+        ///     The value this <see cref="float"/> must be greater than or equal to.
+        /// </param>
+        /// <param name="max">
+        ///     The value this <see cref="float"/> must be less than or equal to.
+        /// </param>
+        /// <returns>
+        ///     A clamped value between the given min and max.
+        /// </returns>
         public static float Clamp(this float value, float min, float max) => Mathf.Clamp(value, min, max);
 
         /// <summary>
-        /// todo: documentation
+        ///     Clamps this <see cref="float"/> between <c>0.0f</c> and <c>1.0f</c>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     A clamped value between <c>0.0f</c> and <c>1.0f</c>.
+        /// </returns>
         public static float Clamp01(this float value) => Mathf.Clamp01(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the cosine of this <see cref="float"/>'s angle value.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The cosine of this <see cref="float"/>'s angle.
+        /// </returns>
         public static float Cos(this float value) => Mathf.Cos(value);
 
         /// <summary>

@@ -15,6 +15,13 @@ namespace Flintor
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
+        public static int Abs(this int value) => Mathf.Abs(value);
+
+        /// <summary>
+        /// todo: documentation
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static int ClosestPowerOfTwo(this int value) => Mathf.ClosestPowerOfTwo(value);
         
         /// <summary>
