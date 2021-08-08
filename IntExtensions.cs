@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Flintor
+namespace Auxtensions
 {
     /// <summary>
     /// Int extensions which provide additional functionality for <see cref="int"/> typed variables.

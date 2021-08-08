@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Flintor
+namespace Auxtensions
 {
     /// <summary>
     /// Float extensions which provide additional functionality for <c>float</c> typed variables.
@@ -487,6 +487,20 @@ namespace Flintor
         #endregion
 
         #region Custom Extensions
+        
+        /// <summary>
+        ///     Checks to see if this <see cref="float"/> is "not a number" using <see cref="float.IsNaN"/>
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     Whether or not the <see cref="float"/> is a number.
+        /// </returns>
+        /// <example>
+        ///     (1.618f).IsNan()
+        /// </example>
+        public static bool IsNan(this float value) => float.IsNaN(value);
 
         /// <summary>
         ///     Remaps this <see cref="float"/> relative to an "in range" and "out range". Advanced normalization.
@@ -513,20 +527,6 @@ namespace Flintor
         ///     (1.618f).Remap(0.0f, 2.0f, 0.0f, 1.0f)
         /// </example>
         public static float Remap(this float value, float inMin, float inMax, float outMin, float outMax) => outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
-
-        /// <summary>
-        ///     Checks to see if this <see cref="float"/> is "not a number" using <see cref="float.IsNaN"/>
-        /// </summary>
-        /// <param name="value">
-        ///     This <see cref="float"/> value.
-        /// </param>
-        /// <returns>
-        ///     Whether or not the <see cref="float"/> is a number.
-        /// </returns>
-        /// <example>
-        ///     (1.618f).IsNan()
-        /// </example>
-        public static bool IsNan(this float value) => float.IsNaN(value);
 
         /// <summary>
         ///     Rounds this <see cref="float"/> to a multiple of the given value.
