@@ -15,20 +15,17 @@ Helpful extensions and utils for C# Unity development.
 using Auxtensions;
 ```
 
-3. Access extensions or util classes as needed
+3. Access extensions or util classes as needed (see below examples)
 
 ```c#
 // Find the closest power of 2 to an integer.
-var myInt = 100;
-Debug.Log(myInt.ClosestPowerOfTwo());
+100.ClosestPowerOfTwo();
 
 // Round a float value to an integer.
-var myFloat = 1.71248f;
-Debug.Log(myFloat.RoundToInt());
+1.71248f.RoundToInt();
 
-// Apply Mathf.Abs(...) to all values of the Vector3
-var myVector3 = new Vector3(-1, -23, 400);
-Debug.Log(myVector3.Abs());
+// Calculate the absolute value of each dimension on a Vector3
+new Vector3(-1, -23, 400).Abs();
 ```
 
 4. ???
@@ -45,9 +42,9 @@ Debug.Log(myVector3.Abs());
 #### Documentation Example
 * Summary tag
 * Tags for all parameters
-* Uses "\<see ...>" tags with a `cref` reference to other functions or code
-* Returns tag
-* Example tag
+* Use "\<see ...>" tags with a `cref` reference to other functions, types, code, etc.
+* "Returns" tag
+* "Example" tag when needed
 ```c#
 /// <summary>
 ///     Rounds this <see cref="float"/> to an <see cref="int"/> using <see cref="Mathf.RoundToInt"/>.
@@ -69,3 +66,6 @@ The function would then appear like this within JetBrains Rider: <br>
 
 #### Contributors & Credits
 * Austin Renner ([website](https://www.austephner.com/), [GitHub](https://github.com/austephner))
+
+### Usage Examples
+Coming soon!
