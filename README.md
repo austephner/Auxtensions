@@ -19,10 +19,10 @@ using Auxtensions;
 
 ```c#
 // Find the closest power of 2 to an integer.
-100.ClosestPowerOfTwo();
+(100).ClosestPowerOfTwo();
 
 // Round a float value to an integer.
-1.71248f.RoundToInt();
+(1.71248f).RoundToInt();
 
 // Calculate the absolute value of each dimension on a Vector3
 new Vector3(-1, -23, 400).Abs();
