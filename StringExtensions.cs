@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Linq;
 using UnityEngine;
 
 namespace Auxtensions
@@ -42,7 +41,7 @@ namespace Auxtensions
         ///     A deserialized object of type <see cref="T"/>.
         /// </returns>
         /// <example>
-        ///     
+        ///     "myFolder/MyFile.JSON".FromJsonFile&lt;MyType&gt;();
         /// </example>
         public static T FromJsonFile<T>(this string @string)
         {
@@ -58,6 +57,9 @@ namespace Auxtensions
         /// <param name="overwriteObject">
         ///     The <see cref="object"/> to overwrite.
         /// </param>
+        /// <example>
+        ///     "{ \"objectName\": \"Unicorn\" }".FromJsonOverwrite(new object());
+        /// </example>
         public static void FromJsonOverwrite(this string @string, object overwriteObject)
         {
             JsonUtility.FromJsonOverwrite(@string, overwriteObject);
@@ -72,6 +74,9 @@ namespace Auxtensions
         /// <returns>
         ///     <c>True</c> if this <see cref="string"/> is null or whitespace, otherwise <c>false</c>.
         /// </returns>
+        /// <example>
+        ///     "nonEmptyString".IsNullOrWhiteSpace();
+        /// </example>
         public static bool IsNullOrWhiteSpace(this string @string)
         {
             return string.IsNullOrWhiteSpace(@string);
@@ -86,6 +91,9 @@ namespace Auxtensions
         /// <returns>
         ///     <c>True</c> if this <see cref="string"/> is null or empty, otherwise <c>false</c>.
         /// </returns>
+        /// <example>
+        ///     "nonEmptyString".IsNullOrEmpty();
+        /// </example>
         public static bool IsNullOrEmpty(this string @string)
         {
             return string.IsNullOrEmpty(@string);
@@ -103,6 +111,9 @@ namespace Auxtensions
         /// <returns>
         ///     The original <see cref="string"/> with the final occurrence of the <see cref="separator"/> split from the end.
         /// </returns>
+        /// <example>
+        ///     "myString,separated,ByCommas".PopLastSplitValue(',')
+        /// </example>
         public static string PopLastSplitValue(this string @string, char separator)
         {
             return string.Join(separator.ToString(), @string.Split(separator));
@@ -120,6 +131,9 @@ namespace Auxtensions
         /// <returns>
         ///     A randomly generated <see cref="string"/>.
         /// </returns>
+        /// <example>
+        ///     "abcdefg".Random(20);
+        /// </example>
         public static string Random(this string @string, int length = 1)
         {
             var result = "";
