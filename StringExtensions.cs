@@ -100,7 +100,25 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Removes the last item in this <see cref="string"/> if it were separated by a <see cref="char"/> <see cref="separator"/>.
+        ///     Gets the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/>.
+        /// </summary>
+        /// <param name="string">
+        ///     This <see cref="string"/>.
+        /// </param>
+        /// <param name="separator">
+        ///     The <see cref="char"/> separator value.
+        /// </param>
+        /// <returns>
+        ///     The last occurrence of an item after splitting this <see cref="string"/>.
+        /// </returns>
+        public static string GetLastSplitValue(this string @string, char separator)
+        {
+            var split = @string.Split(separator);
+            return split.Length > 0 ? split[split.Length - 1] : null;
+        }
+
+        /// <summary>
+        ///     Removes the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/> and then rejoining it.
         /// </summary>
         /// <param name="string">
         ///     This <see cref="string"/>.
@@ -134,7 +152,7 @@ namespace Auxtensions
         /// <example>
         ///     "abcdefg".Random(20);
         /// </example>
-        public static string Random(this string @string, int length = 1)
+        public static string CreateRandomStringFromSource(this string @string, int length = 1)
         {
             var result = "";
 

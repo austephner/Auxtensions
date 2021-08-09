@@ -223,7 +223,100 @@ Supported:
 For more information about these functions, it's recommended to take a look at the `IList` extensions.
   
 #### `String` Extensions
-WIP
+##### `FromJson<T>()`
+Returns an object of type `T` using the Unity `JsonUtility` class. Assumes that the string is a serialized JSON object.
+```c#
+[Serializable]
+class Item 
+{
+    public string name;
+    public float dropRate;
+}
+
+var stringJson = "{ \"name\":\"Apple\", \"dropRate\":1.0f }";
+
+var item = stringJson.FromJson<Item>();
+```
+<br>
+Note that string extensions include a function for overwriting an existing object too.
+
+##### `FromJsonFile<T>()`
+Returns an object of type `T` using the Unity `JsonUtility` class. Assumes that the string is a filepath.
+```c#
+[Serializable]
+class Item 
+{
+    public string name;
+    public float dropRate;
+}
+
+var filePath = "./Items/Apple.json";
+
+var item = filePath.FromJsonFile<Item>();
+```
+
+##### `IsNullOrWhiteSpace()`
+Returns `true` if this string is null or consists only of whitespace.
+```c#
+var myString = "    ";
+
+if (myString.IsNullOrWhiteSpace())
+{
+    Debug.Log("The string is null or whitespace.");
+}
+
+// the above code would print the message because "myString" consists only of whitespace.
+```
+
+##### `IsNullOrEmpty()`
+Returns `true` if this string is null or empty.
+```c#
+var myString = "";
+
+if (myString.IsNullOrWhiteSpace())
+{
+    Debug.Log("The string is null or whitespace.");
+}
+
+// the above code would print the message because "myString" is empty.
+```
+
+##### `GetLastSplitValue()`
+Returns the last occurrence of an element in an array of strings that been split with the given character. This is extremely useful for extracting file names or directories.
+```c#
+var filePath = "./Configuration/Game/CharacterData.config";
+
+var fileName = filePath.GetLastSplitValue('/');
+
+// printing "fileName" would show "CharacterData.config"
+
+Debug.Log(fileName);
+```
+
+##### `PopLastSplitValue()`
+Removes the last occurrence of an element in an array of strings that have been split with the given character.
+```c#
+var filePath = "./Configuration/Game/CharacterData.config";
+
+var directoryPath = filePath.PopLastSplitValue('/');
+
+// printing "directoryPath" would show "./Configuration/Game"
+
+Debug.Log(directoryPath);
+```
+
+##### `CreateRandomStringFromSource()`
+Creates a random `string` consisting of characters from this source `string` with the given length. The length can be any size, it simply helps determine how many random results to generate.
+```c#
+var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+// running this code will print 10 random strings of 3 characters each to the console.
+
+for (int i = 0; i < 10; i++) 
+{
+    Debug.Log(alphabet.CreateRandomStringFromSource(3));
+}
+```
 
 #### `Float` Extensions
 Most `float` extensions are very self-explanatory. This section will be updated over time.
