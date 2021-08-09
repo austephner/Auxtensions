@@ -1,13 +1,13 @@
 # Auxtensions
-### Summary
+#### Summary
 Helpful extensions for common types in C# Unity development.
 
-### Features
+#### Features
 * Extensions for common types that use Unity's `Mathf` class
 * Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
 * Full documentation including examples
 
-### General Usage
+# General Usage
 1. Download the repository into your `Assets` folder (if downloading from Git).
 2. Import the Auxtensions namespace into a C# file.
 
@@ -31,7 +31,8 @@ new Vector3(-1, -23, 400).Abs();
 4. ???
 5. Profit
 
-### Contribution Rules
+# Contribution
+#### Rules
 1. Code must follow formatting patterns of the existing codebase to retain consistency.
 2. <i>Try to</i> fully document and comment all functions. See below for an example.
 3. Code must go through pull requests before being merged. 
@@ -39,7 +40,7 @@ new Vector3(-1, -23, 400).Abs();
 5. Alphabetize functions.
 6. Add your name to the contributors list along with any links you'd like to share!
 
-#### Code Documentation Example
+#### Function Documentation Example
 * Summary tag
 * Tags for all parameters
 * Use "\<see ...>" tags with a `cref` reference to other functions, types, code, etc.
@@ -67,11 +68,11 @@ The function would then appear like this within JetBrains Rider: <br>
 #### Contributors & Credits
 * Austin Renner ([website](https://www.austephner.com/), [GitHub](https://github.com/austephner))
 
-### Detailed Usage
+# Detailed Usage
 Please note that this section only covers the majority of complicated functionality. Simple extensions which utilize Unity's `Mathf` library aren't covered as they're self explanatory.
 
-#### `IList` Extensions
-##### `Append()`
+## `IList` Extensions
+### `Append()`
 Adds all elements of one list into another list without using Linq.
 ```c#
 var listA = new List<int>() { 0, 1, 2, 3 };
@@ -88,7 +89,7 @@ foreach (var item in listA)
 } 
 ```
 
-##### `Dequeue<T>()`
+### `Dequeue<T>()`
 Removes the first item from a list and returns it. This replicates behaviour seen in `Queue` collections.
 ```c#
 var myList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -107,7 +108,7 @@ for (int i = 0; i < myList.Count; i++)
 }
 ```
 
-##### `GetRandom<T>()`
+### `GetRandom<T>()`
 Returns a random element from within the list.
 ```c#
 var myList = new List<string>() { "red", "orange", "yellow", "green", "blue" };
@@ -119,7 +120,7 @@ var randomColor = myList.GetRandom();
 Debug.Log(randomColor);
 ```
 
-##### `GetRandomByWeight<T>()`
+### `GetRandomByWeight<T>()`
 Returns a random element from within the list, taking into account the item's weight (or it's "chance" of being picked).
 ```c#
 class Item 
@@ -143,7 +144,7 @@ var randomItem = items.GetRandomByWeight(item => item.dropRate);
 Debug.Log(randomItem.name);
 ```
 
-##### `Shuffle()`
+### `Shuffle()`
 Rearranges all items within an `IList<T>`, effectively shuffling them.
 ```c#
 var myItems = new List<int>() { 0, 1, 2, 3, 4, 5 };
@@ -158,7 +159,7 @@ foreach (var item in myItems)
 }
 ```
 
-##### `ShuffleToNew()`
+### `ShuffleToNew()`
 Like `Shuffle()`, this function will take an `IList<T>` and rearrange its items. Instead of editing the source item, it'll return a new `IList<T>` with the rearranged elements.
 ```c#
 var myItems = new List<int>() { 0, 1, 2, 3, 4, 5 };
@@ -173,8 +174,8 @@ foreach (var item in shuffledItems)
 }
 ```
 
-#### `IEnumerator` Extensions
-##### `Then()`
+## `IEnumerator` Extensions
+### `Then()`
 Iterates through one `IEnumerator` then iterates through another `IEnumerator`. Behaves similarly to how one might expect olde worlde Angular promises to work.
 ```c#
 IEnumerator Print10() 
@@ -214,7 +215,7 @@ GameObject someGameObject;
 someGameObject.StartCoroutine(Print10().Then(() => Debug.Log("Done"));
 ```
 
-#### `IEnumerable` Extensions
+## `IEnumerable` Extensions
 Extensions for the `IEnumerable<T>` types aren't recommended for use due to the fact that they use Linq. Linq is not performant if used extensively. It's recommended to use `IList<T>` instead as arrays aren't supported beyond these `IEnumerable` extensions.
 <br><br>
 Supported:
@@ -222,8 +223,8 @@ Supported:
 - `GetRandom<T>(IEnumerable<T> exclude)`<br><br>
 For more information about these functions, it's recommended to take a look at the `IList` extensions.
   
-#### `String` Extensions
-##### `FromJson<T>()`
+## `String` Extensions
+### `FromJson<T>()`
 Returns an object of type `T` using the Unity `JsonUtility` class. Assumes that the string is a serialized JSON object.
 ```c#
 [Serializable]
@@ -240,7 +241,7 @@ var item = stringJson.FromJson<Item>();
 <br>
 Note that string extensions include a function for overwriting an existing object too.
 
-##### `FromJsonFile<T>()`
+### `FromJsonFile<T>()`
 Returns an object of type `T` using the Unity `JsonUtility` class. Assumes that the string is a filepath.
 ```c#
 [Serializable]
@@ -255,7 +256,7 @@ var filePath = "./Items/Apple.json";
 var item = filePath.FromJsonFile<Item>();
 ```
 
-##### `IsNullOrWhiteSpace()`
+### `IsNullOrWhiteSpace()`
 Returns `true` if this string is null or consists only of whitespace.
 ```c#
 var myString = "    ";
@@ -268,7 +269,7 @@ if (myString.IsNullOrWhiteSpace())
 // the above code would print the message because "myString" consists only of whitespace.
 ```
 
-##### `IsNullOrEmpty()`
+### `IsNullOrEmpty()`
 Returns `true` if this string is null or empty.
 ```c#
 var myString = "";
@@ -281,7 +282,7 @@ if (myString.IsNullOrWhiteSpace())
 // the above code would print the message because "myString" is empty.
 ```
 
-##### `GetLastSplitValue()`
+### `GetLastSplitValue()`
 Returns the last occurrence of an element in an array of strings that been split with the given character. This is extremely useful for extracting file names or directories.
 ```c#
 var filePath = "./Configuration/Game/CharacterData.config";
@@ -293,7 +294,7 @@ var fileName = filePath.GetLastSplitValue('/');
 Debug.Log(fileName);
 ```
 
-##### `PopLastSplitValue()`
+### `PopLastSplitValue()`
 Removes the last occurrence of an element in an array of strings that have been split with the given character.
 ```c#
 var filePath = "./Configuration/Game/CharacterData.config";
@@ -305,7 +306,7 @@ var directoryPath = filePath.PopLastSplitValue('/');
 Debug.Log(directoryPath);
 ```
 
-##### `CreateRandomStringFromSource()`
+### `CreateRandomStringFromSource()`
 Creates a random `string` consisting of characters from this source `string` with the given length. The length can be any size, it simply helps determine how many random results to generate.
 ```c#
 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -318,8 +319,8 @@ for (int i = 0; i < 10; i++)
 }
 ```
 
-#### `Vector3` Extensions
-##### `Abs()`
+## `Vector3` Extensions
+### `Abs()`
 Calculates a new `Vector3` with absolute values.
 ```c#
 var myVector3 = new Vector3(-10, -20, -100);
@@ -332,7 +333,7 @@ var absVector3 = myVector3.Abs();
 Debug.Log(absVector3);
 ```
 
-##### `ClampAllFields()`
+### `ClampAllFields()`
 Clamps each field of a `Vector3` to the given min and max `float` value.
 ```c#
 var myVector3 = new Vector3(0.1f, -2.0f, 13.08f);
@@ -345,7 +346,7 @@ var clampedVector3 = myVector3.ClampAllFields(-1.0f, 1.0f);
 Debug.Log(clampedVector3);
 ```
 
-##### `ClampMagnitude()`
+### `ClampMagnitude()`
 Clamps the magnitude of a `Vector3` to the given value.
 ```c#
 var myVector3 = new Vector3(0, 10, 0);
@@ -361,7 +362,7 @@ Debug.Log(myVector3.magnitude);
 Debug.Log(clampedVector3.magnitude);
 ```
 
-##### `CreateVector2FromVector3xz()`
+### `CreateVector2FromVector3xz()`
 Creates a new `Vector2` whose `x` field value is the `Vector3`'s `x` field value and `y` field value is the `Vector3`'s `z` field value. This is useful for converting directions between "top down" and "2D".
 ```c#
 var myDirection = new Vector3(0.15f, 0, 0.83f);
@@ -374,7 +375,7 @@ var newDirection = myDirection.CreateVector2FromVector3xz();
 Debug.Log(newDirection); 
 ```
 
-##### `CreateVector3xzFromVector2()`
+### `CreateVector3xzFromVector2()`
 Creates a new `Vector3` and assigns its `x` and `z` values from a `Vector2`'s `x` and `y` values. This is useful for converting directions between "2D" and "top down".
 ```c#
 var myDirection = new Vector3();
@@ -389,7 +390,7 @@ myDirection.CreateVector3xzFromVector2(anotherDirection);
 Debug.Log(myDirection);
 ```
 
-##### `CreateVector3xzFromVector3xy()`
+### `CreateVector3xzFromVector3xy()`
 Creates a new `Vector3` by essentially flipping the original `Vector3`'s `y` field value to a `z` field value.
 ```c#
 var myDirection = new Vector3(0.15f, 0.13f, 0);
@@ -409,14 +410,14 @@ todo: RoundToMultipleOf<br>
 todo: RoundToMultipleOf<br>
 todo: TransformDirection<br>
 
-#### `Vector2` Extensions
+## `Vector2` Extensions
 Coming soon!
 
-#### `Float` Extensions
+## `Float` Extensions
 Coming soon!
 
-#### `Int` Extensions
+## `Int` Extensions
 Coming soon!
 
-#### `Char` Extensions
+## `Char` Extensions
 Coming soon!
