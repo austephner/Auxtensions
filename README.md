@@ -68,4 +68,34 @@ The function would then appear like this within JetBrains Rider: <br>
 * Austin Renner ([website](https://www.austephner.com/), [GitHub](https://github.com/austephner))
 
 ### Usage Examples
-Coming soon!
+More examples coming soon!
+
+#### `IList` Extensions
+##### `Dequeue<T>()`
+Removes the first item from a list and returns it. This replicates behaviour seen in `Queue` collections.
+```c#
+var myList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+var firstItem = myList.Dequeue();
+
+// printing the value of "firstItem" would be "0"
+
+Debug.Log(firstItem);
+
+// printing each element of "myList" would show that "0" is no longer contained inside
+
+for (int i = 0; i < myList.Count; i++) 
+{
+    Debug.Log(myList[i]);
+}
+```
+
+##### `GetRandom<T>()`
+Returns a random element from within the list.
+```c#
+var myList = new List<string>() { "red", "orange", "yellow", "green", "blue" };
+var randomColor = myList.GetRandom();
+
+// printing the value of "randomColor" would show one of the values found in "myList"
+
+Debug.Log(randomColor);
+```
