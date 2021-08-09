@@ -7,6 +7,10 @@ Helpful extensions for common types in C# Unity development.
 * Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
 * Full documentation including examples
 
+#### Pitfalls
+* This API favors usage of `IList<T>` over arrays and `IEnumerables`
+* Although minimal, some Linq is used for `IEnumerable` extensions
+
 # General Usage
 1. Download the repository into your `Assets` folder (if downloading from Git).
 2. Import the Auxtensions namespace into a C# file.
@@ -160,7 +164,7 @@ foreach (var item in myItems)
 ```
 
 ### `ShuffleToNew()`
-Like `Shuffle()`, this function will take an `IList<T>` and rearrange its items. Instead of editing the source item, it'll return a new `IList<T>` with the rearranged elements.
+Like `Shuffle()`, this function will take an `IList<T>` and rearrange its items. Instead of directly editing the source list, it'll return a new `IList<T>` with the rearranged elements.
 ```c#
 var myItems = new List<int>() { 0, 1, 2, 3, 4, 5 };
 
@@ -176,7 +180,7 @@ foreach (var item in shuffledItems)
 
 ## `IEnumerator` Extensions
 ### `Then()`
-Iterates through one `IEnumerator` then iterates through another `IEnumerator`. Behaves similarly to how one might expect olde worlde Angular promises to work.
+Iterates through one `IEnumerator` then iterates through another `IEnumerator`. Behaves similarly to how one might expect _olde worlde_ Angular promises to work.
 ```c#
 IEnumerator Print10() 
 {
