@@ -1,6 +1,6 @@
 # Auxtensions
 ### Summary
-Helpful extensions and utils for C# Unity development.
+Helpful extensions for common types in C# Unity development.
 
 ### Features
 * Extensions for common types that use Unity's `Mathf` class
@@ -68,7 +68,7 @@ The function would then appear like this within JetBrains Rider: <br>
 * Austin Renner ([website](https://www.austephner.com/), [GitHub](https://github.com/austephner))
 
 ### Detailed Usage
-Right now, the documentation only covers complex and potentially confusing functionality. More examples and code will be added over time.
+Please note that this section only covers the majority of complicated functionality. Simple extensions which utilize Unity's `Mathf` library aren't covered as they're self explanatory.
 
 #### `IList` Extensions
 ##### `Append()`
@@ -318,8 +318,105 @@ for (int i = 0; i < 10; i++)
 }
 ```
 
-#### `Float` Extensions
-Most `float` extensions are very self-explanatory. This section will be updated over time.
+#### `Vector3` Extensions
+##### `Abs()`
+Calculates a new `Vector3` with absolute values.
+```c#
+var myVector3 = new Vector3(-10, -20, -100);
 
-#### `Int` Extensions.
-Most `int` extensions are very self-explanatory. This section will be updated over time.
+var absVector3 = myVector3.Abs();
+
+// printing "absVector3" would show that each field is the absolute value of its respective field from 
+// the original "myVector3" variable.
+
+Debug.Log(absVector3);
+```
+
+##### `ClampAllFields()`
+Clamps each field of a `Vector3` to the given min and max `float` value.
+```c#
+var myVector3 = new Vector3(0.1f, -2.0f, 13.08f);
+
+var clampedVector3 = myVector3.ClampAllFields(-1.0f, 1.0f);
+
+// printing "clampedVector3" would show that each field has been clamped to a value between -1.0f 
+// and 1.0f
+
+Debug.Log(clampedVector3);
+```
+
+##### `ClampMagnitude()`
+Clamps the magnitude of a `Vector3` to the given value.
+```c#
+var myVector3 = new Vector3(0, 10, 0);
+
+var clampedVector3 = myVector3.ClampMagnitude(5);
+
+// printing "myVector3.magnitude" would show that the magnitude is 10.
+
+Debug.Log(myVector3.magnitude);
+
+// printing "clampedVector3.magnitude" would show that the magnitude is 5.
+
+Debug.Log(clampedVector3.magnitude);
+```
+
+##### `CreateVector2FromVector3xz()`
+Creates a new `Vector2` whose `x` field value is the `Vector3`'s `x` field value and `y` field value is the `Vector3`'s `z` field value. This is useful for converting directions between "top down" and "2D".
+```c#
+var myDirection = new Vector3(0.15f, 0, 0.83f);
+
+var newDirection = myDirection.CreateVector2FromVector3xz();
+
+// printing "newDirection" would show a Vector2 whose x value is the original Vector3's x value and y
+// value is the original Vector3's z value.
+
+Debug.Log(newDirection); 
+```
+
+##### `CreateVector3xzFromVector2()`
+Creates a new `Vector3` and assigns its `x` and `z` values from a `Vector2`'s `x` and `y` values. This is useful for converting directions between "2D" and "top down".
+```c#
+var myDirection = new Vector3();
+
+var anotherDirection = new Vector2(0.13f, 0.87f);
+
+myDirection.CreateVector3xzFromVector2(anotherDirection);
+
+// printing "myDirection" would show that its "x" and "z" field values match "anotherDirection"'s x and y
+// field values.
+
+Debug.Log(myDirection);
+```
+
+##### `CreateVector3xzFromVector3xy()`
+Creates a new `Vector3` by essentially flipping the original `Vector3`'s `y` field value to a `z` field value.
+```c#
+var myDirection = new Vector3(0.15f, 0.13f, 0);
+
+var newDirection = myDirection.CreateVector3xzFromVector3xy();
+
+// printing "newDirection" would show that the "x" field matches "myDirection"'s "x" field and the "z" field 
+// matches "myDirection"'s "y" field.
+
+Debug.Log(newDirection);
+```
+
+todo: GetMax<br>
+todo: GetMin<br>
+todo: RandomizeByRange<br>
+todo: RoundToMultipleOf<br>
+todo: RoundToMultipleOf<br>
+todo: TransformDirection<br>
+
+#### `Vector2` Extensions
+Coming soon!
+
+#### `Float` Extensions
+Coming soon!
+
+#### `Int` Extensions
+Coming soon!
+
+#### `Char` Extensions
+Coming soon!

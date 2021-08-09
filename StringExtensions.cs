@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Auxtensions
 {
     /// <summary>
-    /// String extensions which provide additional functionality for <c>string</c> typed variables.
+    /// String extensions which provide additional functionality for <see cref="string"/> typed variables.
     /// </summary>
     public static class StringExtensions
     {
