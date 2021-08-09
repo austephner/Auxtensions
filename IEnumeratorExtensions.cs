@@ -9,7 +9,7 @@ namespace Auxtensions
     public static class IEnumeratorExtensions
     {
         /// <summary>
-        ///     Iterates over this <see cref="IEnumerator"/> then iterates over the given <see cref="IEnumerator"/>.
+        ///     Iterates over this <see cref="IEnumerator"/> then iterates over another <see cref="IEnumerator"/> subsequently.
         /// </summary>
         /// <param name="enumerator">
         ///     This <see cref="IEnumerator"/>.

@@ -34,7 +34,7 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Gets and removes the first element of this <see cref="IList{T}"/>. 
+        ///     Gets and removes the first element of this <see cref="IList{T}"/>, similar to a <see cref="Queue{T}"/>'s behaviour.
         /// </summary>
         /// <param name="list">
         ///     This <see cref="IList{T}"/>.
@@ -79,7 +79,7 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Gets a random element from this <see cref="IList{T}"/> using a <see cref="Func{TResult, TFloat}"/> function to get an element's <see cref="float"/> weight.
+        ///     Gets a random element from this <see cref="IList{T}"/> based on its <see cref="float"/> weight.
         /// </summary>
         /// <param name="list">
         ///     This <see cref="IList{T}"/>.
@@ -122,7 +122,7 @@ namespace Auxtensions
         }
         
         /// <summary>
-        ///     Moves each element of this <see cref="IList{T}"/> to a random index.
+        ///     Rearranges all elements of this <see cref="IList{T}"/> with random ordering.
         /// </summary>
         /// <param name="list">
         ///     This <see cref="IList{T}"/>.
@@ -130,9 +130,6 @@ namespace Auxtensions
         /// <typeparam name="T">
         ///     The type.
         /// </typeparam>
-        /// <returns>
-        ///     This <see cref="IList{T}"/>.
-        /// </returns>
         public static void Shuffle<T>(this IList<T> list)
         {
             for (var i = list.Count; i > 1; i--)
@@ -145,7 +142,7 @@ namespace Auxtensions
         }
         
         /// <summary>
-        ///     Moves each element of this <see cref="IList{T}"/> to a random index. This will not create a new list, it'll assign the positions to within itself.
+        ///     Rearranges all elements of this <see cref="IList{T}"/> into a new <see cref="IList{T}"/>.
         /// </summary>
         /// <param name="list">
         ///     This <see cref="IList{T}"/>.
@@ -154,7 +151,7 @@ namespace Auxtensions
         ///     The type.
         /// </typeparam>
         /// <returns>
-        ///     This <see cref="IList{T}"/>.
+        ///     A new <see cref="IList{T}"/> with randomly ordered items from this <see cref="IList{T}"/>.
         /// </returns>
         public static IList<T> ShuffleToNew<T>(this IList<T> list)
         {
