@@ -487,6 +487,27 @@ namespace Auxtensions
         #endregion
 
         #region Custom Extensions
+
+        /// <summary>
+        ///     Checks to see if this <see cref="float"/> is within a <see cref="min"/> and <see cref="max"/> <see cref="float"/> range.
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="min">
+        ///     The minimum <see cref="float"/> range.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <param name="inclusive">
+        ///     (Optional) If <c>true</c>, this <see cref="value"/> will be compared with "or-equal-to" operators.
+        /// </param>
+        /// <returns>
+        ///     Whether or not this <see cref="value"/> is within the given <see cref="min"/> and <see cref="max"/> range.
+        /// </returns>
+        public static bool IsInsideRange(this float value, float min, float max, bool inclusive = true) 
+            => inclusive ? value >= min && value <= max : value > min && value < max;
         
         /// <summary>
         ///     Checks to see if this <see cref="float"/> is "not a number" using <see cref="float.IsNaN"/>
@@ -500,7 +521,29 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).IsNan()
         /// </example>
-        public static bool IsNan(this float value) => float.IsNaN(value);
+        public static bool IsNan(this float value) 
+            => float.IsNaN(value);
+
+        /// <summary>
+        ///     Checks to see if this <see cref="float"/> is outside of a <see cref="min"/> and <see cref="max"/> <see cref="float"/> range.
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="min">
+        ///     The minimum <see cref="float"/> range.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <param name="inclusive">
+        ///     (Optional) If <c>true</c>, this <see cref="value"/> will be compared with "or-equal-to" operators.
+        /// </param>
+        /// <returns>
+        ///     Whether or not this <see cref="value"/> is outside of the given <see cref="min"/> and <see cref="max"/> range.
+        /// </returns>
+        public static bool IsOutsideRange(this float value, float min, float max, bool inclusive = false)
+            => inclusive ? value <= min || value >= max : value < min && value > max;
 
         /// <summary>
         ///     Remaps this <see cref="float"/> relative to an "in range" and "out range". Advanced normalization.

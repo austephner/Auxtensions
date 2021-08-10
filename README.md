@@ -431,6 +431,50 @@ var min = myVector.GetMin();
 Debug.Log(min);
 ```
 
+### `IsInsideRange()`
+Checks to see if each field of this `Vector3` are within a given min and max `float` value. Useful for determining input, directional, and physics force related thresholds.
+```c#
+var userInput = new Vector3(0.15f, 0.935f);
+
+if (userInput.IsInsideRange(-1.0f, 1.0f)) 
+{
+    Debug.Log("User is sending valid input.");
+}
+```
+
+### `IsMagnitudeInsideRange()`
+Checks to see if this `Vector3`'s magnitude is within a 0 and max `float` value range. Useful for determining speed of movement or deltas.
+```c#
+var carSpeed = new Vector3(13, 0, 0.95f);
+
+if (carSpeed.IsMagnitudeInsideRange(20)) 
+{
+    Debug.Log("Player is going the speed limit.");
+}
+```
+
+### `IsMagnitudeOutsideRange()`
+Checks to see if this `Vector3`'s magnitude is outside of a 0 to max `float` value range. Useful for determining speed of movement or deltas.
+```c#
+var carSpeed = new Vector3(13, 0, 0.95f);
+
+if (carSpeed.IsMagnitudeOutsideRange(20)) 
+{
+    Debug.Log("Player is speeding! Send the police!");
+}
+```
+
+### `IsOutsideRange()`
+Checks to see if each field of this `Vector3` are outside a given min and max `float` value. Useful for determining input, directional, and physics force related thresholds.
+```c#
+var userInput = new Vector3(0.15f, 0.935f);
+
+if (userInput.IsOutsideRange(-0.5f, 0.5f)) 
+{
+    Debug.Log("User is sending valid input.");
+}
+```
+
 ### `RandomizeByRange()`
 Randomizes all fields on a `Vector3` given a min and max.
 ```c#

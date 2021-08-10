@@ -160,7 +160,85 @@ namespace Auxtensions
 
             return value.z;
         }
+
+        /// <summary>
+        ///     Checks to see if all fields of this <see cref="Vector3"/> are within a <see cref="min"/> and <see cref="max"/> <see cref="float"/> range.
+        /// </summary>
+        /// <param name="vector3">
+        ///     This <see cref="Vector3"/> value.
+        /// </param>
+        /// <param name="min">
+        ///     The minimum <see cref="float"/> range.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <param name="inclusive">
+        ///     (Optional) If <c>true</c>, the fields of this <see cref="vector3"/> will be compared with "or-equal-to" operators.
+        /// </param>
+        /// <returns>
+        ///     Whether or not the fields of this <see cref="vector3"/> are within the given <see cref="min"/> and <see cref="max"/> range.
+        /// </returns>
+        public static bool IsInsideRange(this Vector3 vector3, float min, float max, bool inclusive = true)
+            => vector3.x.IsInsideRange(min, max, inclusive) && vector3.y.IsInsideRange(min, max, inclusive) && vector3.z.IsInsideRange(min, max, inclusive);
+
+        /// <summary>
+        ///     Checks to see if the magnitude of this <see cref="Vector3"/> is within 0 and <see cref="max"/> <see cref="float"/> range.
+        /// </summary>
+        /// <param name="vector3">
+        ///     This <see cref="Vector3"/> value.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <param name="inclusive">
+        ///     (Optional) If <c>true</c>, the fields of this <see cref="vector3"/> will be compared with "or-equal-to" operators.
+        /// </param>
+        /// <returns>
+        ///     Whether or not the magnitude of this <see cref="vector3"/> is within the 0 given <see cref="min"/> and <see cref="max"/> range.
+        /// </returns>        
+        public static bool IsMagnitudeInsideRange(this Vector3 vector3, float max, bool inclusive = true)
+            => vector3.magnitude.IsInsideRange(0, max, inclusive);
+
+        /// <summary>
+        ///     Checks to see if the magnitude of this <see cref="Vector3"/> is outside of a 0 and <see cref="max"/> <see cref="float"/> range.
+        /// </summary>
+        /// <param name="vector3">
+        ///     This <see cref="Vector3"/> value.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <param name="inclusive">
+        ///     (Optional) If <c>true</c>, the fields of this <see cref="vector3"/> will be compared with "or-equal-to" operators.
+        /// </param>
+        /// <returns>
+        ///     Whether or not the magnitude of this <see cref="vector3"/> is outside the 0 and <see cref="max"/> range.
+        /// </returns>    
+        public static bool IsMagnitudeOutsideRange(this Vector3 vector3, float max, bool inclusive = false)
+            => vector3.magnitude.IsOutsideRange(0, max, inclusive);
         
+        /// <summary>
+        ///     Checks to see if all fields of this <see cref="Vector3"/> are outside a <see cref="min"/> and <see cref="max"/> <see cref="float"/> range.
+        /// </summary>
+        /// <param name="vector3">
+        ///     This <see cref="Vector3"/> value.
+        /// </param>
+        /// <param name="min">
+        ///     The minimum <see cref="float"/> range.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <param name="inclusive">
+        ///     (Optional) If <c>true</c>, the fields of this <see cref="vector3"/> will be compared with "or-equal-to" operators.
+        /// </param>
+        /// <returns>
+        ///     Whether or not the fields of this <see cref="vector3"/> are outside the given <see cref="min"/> and <see cref="max"/> range.
+        /// </returns>
+        public static bool IsOutsideRange(this Vector3 vector3, float min, float max, bool inclusive = false)
+            => vector3.x.IsOutsideRange(min, max, inclusive) && vector3.y.IsOutsideRange(min, max, inclusive) && vector3.z.IsOutsideRange(min, max, inclusive);
+
         /// <summary>
         ///     Randomizes each field on this <see cref="Vector3"/> to a <see cref="float"/> between the <see cref="min"/> and <see cref="max"/>.
         /// </summary>
