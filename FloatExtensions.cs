@@ -13,7 +13,7 @@ namespace Auxtensions
         #region Mathf Functions
         
         /// <summary>
-        ///     Calculates the absolute value of this <see cref="float"/> using <see cref="Mathf.Abs"/>.
+        ///     Calculates the absolute value of this <see cref="float"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -25,7 +25,7 @@ namespace Auxtensions
             => Mathf.Abs(value);
         
         /// <summary>
-        ///     Calculates the arc cosine of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Acos"/>.
+        ///     Calculates the arc cosine of this <see cref="float"/> angle, measured in radians.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -52,7 +52,7 @@ namespace Auxtensions
             => Mathf.Approximately(value, approximation); 
 
         /// <summary>
-        ///     Calculates the arc sine of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Sin"/>/
+        ///     Calculates the arc sine of this <see cref="float"/> angle, measured in radians.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -64,7 +64,7 @@ namespace Auxtensions
             => Mathf.Asin(value);
         
         /// <summary>
-        ///     Calculates the arc tangent of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Atan"/>.
+        ///     Calculates the arc tangent of this <see cref="float"/> angle, measured in radians.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -91,7 +91,7 @@ namespace Auxtensions
             => Mathf.Atan2(value, y);
 
         /// <summary>
-        ///     Rounds this <see cref="float"/> up using <see cref="Mathf.CeilToInt"/>.
+        ///     Rounds this <see cref="float"/> up.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -106,7 +106,7 @@ namespace Auxtensions
             => Mathf.Ceil(value);
         
         /// <summary>
-        ///     Rounds this <see cref="float"/> up to an <see cref="int"/> using <see cref="Mathf.CeilToInt"/>.
+        ///     Rounds this <see cref="float"/> up to an <see cref="int"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -163,24 +163,34 @@ namespace Auxtensions
             => Mathf.Cos(value);
 
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the shortest distance between this <see cref="float"/> and a <see cref="target"/> <see cref="float"/> measured in radians.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="target">
+        ///     The target angle in radians.
+        /// </param>
+        /// <returns>
+        ///     The delta angle in radians.
+        /// </returns>
         public static float DeltaAngle(this float value, float target) 
             => Mathf.DeltaAngle(value, target);
         
         /// <summary>
-        /// todo: documentation
+        ///     Returns <c>e</c> raised to the power of this <see cref="float"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     <c>e</c> raised to this <see cref="float"/>.
+        /// </returns>
         public static float Exp(this float value) 
             => Mathf.Exp(value);
         
         /// <summary>
-        ///     Rounds this <see cref="float"/> down using <see cref="Mathf.FloorToInt"/>.
+        ///     Rounds this <see cref="float"/> down.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -195,7 +205,7 @@ namespace Auxtensions
             => Mathf.Floor(value);
         
         /// <summary>
-        ///     Rounds this <see cref="float"/> down to an <see cref="int"/> using <see cref="Mathf.FloorToInt"/>.
+        ///     Rounds this <see cref="float"/> down to an <see cref="int"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -210,7 +220,7 @@ namespace Auxtensions
             => Mathf.FloorToInt(value);
 
         /// <summary>
-        /// todo: documentation
+        ///     todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <param name="absMax"></param>
@@ -220,139 +230,205 @@ namespace Auxtensions
             => Mathf.Gamma(value, absMax, gamma);
 
         /// <summary>
-        /// todo: documentation
+        ///     Inverse lerps this <see cref="float"/> value to the given target value over the given <see cref="time"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="to"></param>
-        /// <param name="time"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="to">
+        ///     The target value.
+        /// </param>
+        /// <param name="time">
+        ///     The time lerp percentage.
+        /// </param>
+        /// <returns>
+        ///     An inversed lerp value.
+        /// </returns>
         public static float InverseLerpTo(this float value, float to, float time) 
             => Mathf.InverseLerp(value, to, time);
 
         /// <summary>
-        /// todo: documentation
+        ///     Inverse lerps from the given origin value to this <see cref="float"/> value over the given <see cref="time"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="from"></param>
-        /// <param name="time"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="from">
+        ///     The target value.
+        /// </param>
+        /// <param name="time">
+        ///     The time lerp percentage.
+        /// </param>
+        /// <returns>
+        ///     A inversed lerp value.
+        /// </returns>
         public static float InverseLerpFrom(this float value, float from, float time) 
             => Mathf.InverseLerp(from, value, time);
 
         /// <summary>
-        /// todo: documentation
+        ///     Inverse lerps between the given origin value and the given target value over this <see cref="float"/> time.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="from">
+        ///     The origin value.
+        /// </param>
+        /// <param name="to">
+        ///     The target value.
+        /// </param>
+        /// <returns>
+        ///     An inversed lerp value.
+        /// </returns>
         public static float InverseLerpOver(this float value, float from, float to) 
             => Mathf.InverseLerp(from, to, value);
 
         /// <summary>
-        /// todo: documentation
+        ///     Lerps this <see cref="float"/> value to the given target value over the given <see cref="time"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="to"></param>
-        /// <param name="time"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="to">
+        ///     The target value.
+        /// </param>
+        /// <param name="time">
+        ///     The time lerp percentage.
+        /// </param>
+        /// <returns>
+        ///     A lerped value.
+        /// </returns>
         public static float LerpTo(this float value, float to, float time) 
             => Mathf.Lerp(value, to, time);
 
         /// <summary>
-        /// todo: documentation
+        ///     Lerps from the given origin value to this <see cref="float"/> value over the given <see cref="time"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="from"></param>
-        /// <param name="time"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="from">
+        ///     The target value.
+        /// </param>
+        /// <param name="time">
+        ///     The time lerp percentage.
+        /// </param>
+        /// <returns>
+        ///     A lerped value.
+        /// </returns>
         public static float LerpFrom(this float value, float from, float time) 
             => Mathf.Lerp(from, value, time);
 
         /// <summary>
-        /// todo: documentation
+        ///     Lerps between the given origin value and the given target value over this <see cref="float"/> time.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="from">
+        ///     The origin value.
+        /// </param>
+        /// <param name="to">
+        ///     The target value.
+        /// </param>
+        /// <returns>
+        ///     A lerped value.
+        /// </returns>
         public static float LerpOver(this float value, float from, float to) 
             => Mathf.Lerp(from, to, value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the log base <c>e</c> of this <see cref="float"/> value.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The log base <c>e</c> of this <see cref="float"/> value.
+        /// </returns>
         public static float Log(this float value) 
             => Mathf.Log(value);
 
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the log of this <see cref="float"/> value with the given <see cref="@base"/> value.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="base"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="base">
+        ///     The base to calculate a log with.
+        /// </param>
+        /// <returns>
+        ///     A log value.
+        /// </returns>
         public static float Log(this float value, float @base) 
             => Mathf.Log(value, @base);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the log base 10 of this <see cref="float"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The log base 10 of this <see cref="float"/>.
+        /// </returns>
         public static float Log10(this float value) 
             => Mathf.Log10(value);
 
         /// <summary>
-        /// todo: documentation
+        ///     Calculates a value between this <see cref="float"/> and the given <see cref="target"/> <see cref="float"/> with a max change rate of the given <see cref="maxDelta"/> value.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="maxDelta"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="target">
+        ///     The desired end value.
+        /// </param>
+        /// <param name="maxDelta">
+        ///     The maximum amount of change this value can undergo during one call to this function.
+        /// </param>
+        /// <returns>
+        ///     A value between this <see cref="float"/> and the given <see cref="target"/>.
+        /// </returns>
         public static float MoveTowards(this float value, float target, float maxDelta) 
             => Mathf.MoveTowards(value, target, maxDelta);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates a value between this <see cref="float"/> angle and the given <see cref="target"/> <see cref="float"/> angle with a max change rate of the given <see cref="maxDelta"/> value, looping through 0 to 360 degrees and wrapping around as needed.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="maxDelta"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="target">
+        ///     The desired end value.
+        /// </param>
+        /// <param name="maxDelta">
+        ///     The maximum amount of change this value can undergo during one call to this function.
+        /// </param>
+        /// <returns>
+        ///     A value between this <see cref="float"/> and the given <see cref="target"/>.
+        /// </returns>
         public static float MoveTowardsAngle(this float value, float target, float maxDelta) 
             => Mathf.MoveTowardsAngle(value, target, maxDelta);
 
         /// <summary>
-        /// todo: documentation
+        ///     Loops this <see cref="float"/> between <c>0</c> and the given <see cref="length"/> by calculating the modulus of this <see cref="float"/> and determining what the final position is. An alternative to clamping.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public static float PerlinNoiseX(this float value, float y) 
-            => Mathf.PerlinNoise(value, y);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="x"></param>
-        /// <returns></returns>
-        public static float PerlinNoiseY(this float value, float x) 
-            => Mathf.PerlinNoise(x, value);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="length"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="length">
+        ///     The maximum size of the ping pong effect.
+        /// </param>
+        /// <returns>
+        ///     A value that has been ping-ponged between 0 and the <see cref="length"/>.
+        /// </returns>
         public static float PingPong(this float value, float length) 
-            => Mathf.PerlinNoise(value, length);
+            => Mathf.PingPong(value, length);
         
         /// <summary>
-        ///     Raises this <see cref="float"/> to the given <see cref="power"/> using <see cref="Mathf.Pow"/>.
+        ///     Raises this <see cref="float"/> to the given <see cref="power"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -370,16 +446,22 @@ namespace Auxtensions
             => Mathf.Pow(value, power);
 
         /// <summary>
-        /// todo: documentation
+        ///     Loops this <see cref="float"/> value between <c>0</c> and the given <see cref="length"/> such that the result can never be beyond <c>0</c> and the given <see cref="length"/>. An alternative to clamping a value while retaining its relative value to the start and end.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="length"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="length">
+        ///     The max length of the repeat loop.
+        /// </param>
+        /// <returns>
+        ///     A value between 0 and <see cref="length"/>.
+        /// </returns>
         public static float Repeat(this float value, float length) 
             => Mathf.Repeat(value, length);
         
         /// <summary>
-        ///     Rounds this <see cref="float"/> using <see cref="Mathf.RoundToInt"/>.
+        ///     Rounds this <see cref="float"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -394,7 +476,7 @@ namespace Auxtensions
             => Mathf.Round(value);
 
         /// <summary>
-        ///     Rounds this <see cref="float"/> to an <see cref="int"/> using <see cref="Mathf.RoundToInt"/>.
+        ///     Rounds this <see cref="float"/> to an <see cref="int"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -409,105 +491,31 @@ namespace Auxtensions
             => Mathf.RoundToInt(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Gets the sign of this <see cref="float"/> value.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     <c>1.0f</c> if this <see cref="float"/> is positive and <c>-1.0f</c> if this <see cref="float"/> is negative.
+        /// </returns>
         public static float Sign(this float value) 
             => Mathf.Sign(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the sine of this <see cref="float"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The sine of this <see cref="float"/>.
+        /// </returns>
         public static float Sin(this float value) 
             => Mathf.Sin(value);
 
         /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="currentVelocity"></param>
-        /// <param name="smoothTime"></param>
-        /// <returns></returns>
-        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime) 
-            => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="currentVelocity"></param>
-        /// <param name="smoothTime"></param>
-        /// <param name="maxSpeed"></param>
-        /// <returns></returns>
-        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) 
-            => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="currentVelocity"></param>
-        /// <param name="smoothTime"></param>
-        /// <param name="maxSpeed"></param>
-        /// <param name="deltaTime"></param>
-        /// <returns></returns>
-        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) 
-            => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
-        
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="currentVelocity"></param>
-        /// <param name="smoothTime"></param>
-        /// <returns></returns>
-        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime) 
-            => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="currentVelocity"></param>
-        /// <param name="smoothTime"></param>
-        /// <param name="maxSpeed"></param>
-        /// <returns></returns>
-        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) 
-            => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="target"></param>
-        /// <param name="currentVelocity"></param>
-        /// <param name="smoothTime"></param>
-        /// <param name="maxSpeed"></param>
-        /// <param name="deltaTime"></param>
-        /// <returns></returns>
-        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) 
-            => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
-
-        /// <summary>
-        /// todo: documentation
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="to"></param>
-        /// <param name="time"></param>
-        /// <returns></returns>
-        public static float SmoothStep(this float value, float to, float time) 
-            => Mathf.SmoothStep(value, to, time);
-
-        /// <summary>
-        ///     Calculates the square root of this <see cref="float"/> using <see cref="Mathf.Sqrt"/>.
+        ///     Calculates the square root of this <see cref="float"/>.
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
@@ -515,17 +523,18 @@ namespace Auxtensions
         /// <returns>
         ///     The square of this <see cref="float"/> value.
         /// </returns>
-        /// <example>
-        ///     (1.618f).Sqrt()
-        /// </example>
         public static float Sqrt(this float value) 
             => Mathf.Sqrt(value);
         
         /// <summary>
-        /// todo: documentation
+        ///     Calculates the tangent of this <see cref="float"/>.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     The tangent of this <see cref="float"/>.
+        /// </returns>
         public static float Tan(this float value) 
             => Mathf.Tan(value);
 
@@ -555,7 +564,7 @@ namespace Auxtensions
             => inclusive ? value >= min && value <= max : value > min && value < max;
         
         /// <summary>
-        ///     Checks to see if this <see cref="float"/> is "not a number" using <see cref="float.IsNaN"/>
+        ///     Checks to see if this <see cref="float"/> is "not a number".
         /// </summary>
         /// <param name="value">
         ///     This <see cref="float"/> value.
