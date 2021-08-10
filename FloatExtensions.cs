@@ -21,7 +21,8 @@ namespace Auxtensions
         /// <returns>
         ///     The absolute value of the given <see cref="float"/>.
         /// </returns>
-        public static float Abs(this float value) => Mathf.Abs(value);
+        public static float Abs(this float value) 
+            => Mathf.Abs(value);
         
         /// <summary>
         ///     Calculates the arc cosine of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Acos"/>.
@@ -32,7 +33,8 @@ namespace Auxtensions
         /// <returns>
         ///     The arc cosine of this <see cref="float"/>.
         /// </returns>
-        public static float Acos(this float value) => Mathf.Acos(value);
+        public static float Acos(this float value) 
+            => Mathf.Acos(value);
         
         /// <summary>
         ///     Determines if this <see cref="float"/> is similar to the given <see cref="approximation"/> <see cref="float"/>. 
@@ -46,7 +48,8 @@ namespace Auxtensions
         /// <returns>
         ///     <c>True</c> if this value is similar to the given <see cref="approximation"/>, otherwise <c>false</c>.
         /// </returns>
-        public static bool Approximately(this float value, float approximation) => Mathf.Approximately(value, approximation); 
+        public static bool Approximately(this float value, float approximation) 
+            => Mathf.Approximately(value, approximation); 
 
         /// <summary>
         ///     Calculates the arc sine of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Sin"/>/
@@ -57,7 +60,8 @@ namespace Auxtensions
         /// <returns>
         ///     The arc sine of this <see cref="float"/>.
         /// </returns>
-        public static float Asin(this float value) => Mathf.Asin(value);
+        public static float Asin(this float value) 
+            => Mathf.Asin(value);
         
         /// <summary>
         ///     Calculates the arc tangent of this <see cref="float"/> angle, measured in radians, using <see cref="Mathf.Atan"/>.
@@ -68,7 +72,8 @@ namespace Auxtensions
         /// <returns>
         ///     The arc tangent of this <see cref="float"/>.
         /// </returns>
-        public static float Atan(this float value) => Mathf.Atan(value);
+        public static float Atan(this float value) 
+            => Mathf.Atan(value);
 
         /// <summary>
         ///     Calculates the radian angles of the arc tangent between this <see cref="float"/> <c>x</c> value given another <see cref="y"/> value.
@@ -82,7 +87,8 @@ namespace Auxtensions
         /// <returns>
         ///     A degree in radians.
         /// </returns>
-        public static float Atan2(this float value, float y) => Mathf.Atan2(value, y);
+        public static float Atan2(this float value, float y) 
+            => Mathf.Atan2(value, y);
 
         /// <summary>
         ///     Rounds this <see cref="float"/> up using <see cref="Mathf.CeilToInt"/>.
@@ -96,7 +102,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).CeilToInt()
         /// </example>
-        public static float Ceil(this float value) => Mathf.Ceil(value);
+        public static float Ceil(this float value) 
+            => Mathf.Ceil(value);
         
         /// <summary>
         ///     Rounds this <see cref="float"/> up to an <see cref="int"/> using <see cref="Mathf.CeilToInt"/>.
@@ -110,7 +117,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).CeilToInt()
         /// </example>
-        public static int CeilToInt(this float value) => Mathf.CeilToInt(value);
+        public static int CeilToInt(this float value) 
+            => Mathf.CeilToInt(value);
         
         /// <summary>
         ///     Clamps this <see cref="float"/> between a <see cref="min"/> and <see cref="max"/>.
@@ -127,7 +135,8 @@ namespace Auxtensions
         /// <returns>
         ///     A clamped value between the given min and max.
         /// </returns>
-        public static float Clamp(this float value, float min, float max) => Mathf.Clamp(value, min, max);
+        public static float Clamp(this float value, float min, float max) 
+            => Mathf.Clamp(value, min, max);
 
         /// <summary>
         ///     Clamps this <see cref="float"/> between <c>0.0f</c> and <c>1.0f</c>.
@@ -138,7 +147,8 @@ namespace Auxtensions
         /// <returns>
         ///     A clamped value between <c>0.0f</c> and <c>1.0f</c>.
         /// </returns>
-        public static float Clamp01(this float value) => Mathf.Clamp01(value);
+        public static float Clamp01(this float value) 
+            => Mathf.Clamp01(value);
         
         /// <summary>
         ///     Calculates the cosine of this <see cref="float"/>'s angle value.
@@ -149,7 +159,8 @@ namespace Auxtensions
         /// <returns>
         ///     The cosine of this <see cref="float"/>'s angle.
         /// </returns>
-        public static float Cos(this float value) => Mathf.Cos(value);
+        public static float Cos(this float value) 
+            => Mathf.Cos(value);
 
         /// <summary>
         /// todo: documentation
@@ -157,14 +168,16 @@ namespace Auxtensions
         /// <param name="value"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public static float DeltaAngle(this float value, float target) => Mathf.DeltaAngle(value, target);
+        public static float DeltaAngle(this float value, float target) 
+            => Mathf.DeltaAngle(value, target);
         
         /// <summary>
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static float Exp(this float value) => Mathf.Exp(value);
+        public static float Exp(this float value) 
+            => Mathf.Exp(value);
         
         /// <summary>
         ///     Rounds this <see cref="float"/> down using <see cref="Mathf.FloorToInt"/>.
@@ -178,7 +191,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).FloorToInt()
         /// </example>
-        public static float Floor(this float value) => Mathf.Floor(value);
+        public static float Floor(this float value) 
+            => Mathf.Floor(value);
         
         /// <summary>
         ///     Rounds this <see cref="float"/> down to an <see cref="int"/> using <see cref="Mathf.FloorToInt"/>.
@@ -192,7 +206,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).FloorToInt()
         /// </example>
-        public static int FloorToInt(this float value) => Mathf.FloorToInt(value);
+        public static int FloorToInt(this float value) 
+            => Mathf.FloorToInt(value);
 
         /// <summary>
         /// todo: documentation
@@ -201,7 +216,8 @@ namespace Auxtensions
         /// <param name="absMax"></param>
         /// <param name="gamma"></param>
         /// <returns></returns>
-        public static float Gamma(this float value, float absMax, float gamma) => Mathf.Gamma(value, absMax, gamma);
+        public static float Gamma(this float value, float absMax, float gamma) 
+            => Mathf.Gamma(value, absMax, gamma);
 
         /// <summary>
         /// todo: documentation
@@ -210,7 +226,8 @@ namespace Auxtensions
         /// <param name="to"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static float InverseLerpTo(this float value, float to, float time) => Mathf.InverseLerp(value, to, time);
+        public static float InverseLerpTo(this float value, float to, float time) 
+            => Mathf.InverseLerp(value, to, time);
 
         /// <summary>
         /// todo: documentation
@@ -219,7 +236,8 @@ namespace Auxtensions
         /// <param name="from"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static float InverseLerpFrom(this float value, float from, float time) => Mathf.InverseLerp(from, value, time);
+        public static float InverseLerpFrom(this float value, float from, float time) 
+            => Mathf.InverseLerp(from, value, time);
 
         /// <summary>
         /// todo: documentation
@@ -228,7 +246,8 @@ namespace Auxtensions
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        public static float InverseLerpOver(this float value, float from, float to) => Mathf.InverseLerp(from, to, value);
+        public static float InverseLerpOver(this float value, float from, float to) 
+            => Mathf.InverseLerp(from, to, value);
 
         /// <summary>
         /// todo: documentation
@@ -237,7 +256,8 @@ namespace Auxtensions
         /// <param name="to"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static float LerpTo(this float value, float to, float time) => Mathf.Lerp(value, to, time);
+        public static float LerpTo(this float value, float to, float time) 
+            => Mathf.Lerp(value, to, time);
 
         /// <summary>
         /// todo: documentation
@@ -246,7 +266,8 @@ namespace Auxtensions
         /// <param name="from"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static float LerpFrom(this float value, float from, float time) => Mathf.Lerp(from, value, time);
+        public static float LerpFrom(this float value, float from, float time) 
+            => Mathf.Lerp(from, value, time);
 
         /// <summary>
         /// todo: documentation
@@ -255,14 +276,16 @@ namespace Auxtensions
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        public static float LerpOver(this float value, float from, float to) => Mathf.Lerp(from, to, value);
+        public static float LerpOver(this float value, float from, float to) 
+            => Mathf.Lerp(from, to, value);
         
         /// <summary>
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static float Log(this float value) => Mathf.Log(value);
+        public static float Log(this float value) 
+            => Mathf.Log(value);
 
         /// <summary>
         /// todo: documentation
@@ -270,14 +293,16 @@ namespace Auxtensions
         /// <param name="value"></param>
         /// <param name="base"></param>
         /// <returns></returns>
-        public static float Log(this float value, float @base) => Mathf.Log(value, @base);
+        public static float Log(this float value, float @base) 
+            => Mathf.Log(value, @base);
         
         /// <summary>
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static float Log10(this float value) => Mathf.Log10(value);
+        public static float Log10(this float value) 
+            => Mathf.Log10(value);
 
         /// <summary>
         /// todo: documentation
@@ -286,7 +311,8 @@ namespace Auxtensions
         /// <param name="target"></param>
         /// <param name="maxDelta"></param>
         /// <returns></returns>
-        public static float MoveTowards(this float value, float target, float maxDelta) => Mathf.MoveTowards(value, target, maxDelta);
+        public static float MoveTowards(this float value, float target, float maxDelta) 
+            => Mathf.MoveTowards(value, target, maxDelta);
         
         /// <summary>
         /// todo: documentation
@@ -295,7 +321,8 @@ namespace Auxtensions
         /// <param name="target"></param>
         /// <param name="maxDelta"></param>
         /// <returns></returns>
-        public static float MoveTowardsAngle(this float value, float target, float maxDelta) => Mathf.MoveTowardsAngle(value, target, maxDelta);
+        public static float MoveTowardsAngle(this float value, float target, float maxDelta) 
+            => Mathf.MoveTowardsAngle(value, target, maxDelta);
 
         /// <summary>
         /// todo: documentation
@@ -303,7 +330,8 @@ namespace Auxtensions
         /// <param name="value"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public static float PerlinNoiseX(this float value, float y) => Mathf.PerlinNoise(value, y);
+        public static float PerlinNoiseX(this float value, float y) 
+            => Mathf.PerlinNoise(value, y);
 
         /// <summary>
         /// todo: documentation
@@ -311,7 +339,8 @@ namespace Auxtensions
         /// <param name="value"></param>
         /// <param name="x"></param>
         /// <returns></returns>
-        public static float PerlinNoiseY(this float value, float x) => Mathf.PerlinNoise(x, value);
+        public static float PerlinNoiseY(this float value, float x) 
+            => Mathf.PerlinNoise(x, value);
 
         /// <summary>
         /// todo: documentation
@@ -319,7 +348,8 @@ namespace Auxtensions
         /// <param name="value"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public static float PingPong(this float value, float length) => Mathf.PerlinNoise(value, length);
+        public static float PingPong(this float value, float length) 
+            => Mathf.PerlinNoise(value, length);
         
         /// <summary>
         ///     Raises this <see cref="float"/> to the given <see cref="power"/> using <see cref="Mathf.Pow"/>.
@@ -336,7 +366,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).Pow(5)
         /// </example>
-        public static float Pow(this float value, float power) => Mathf.Pow(value, power);
+        public static float Pow(this float value, float power) 
+            => Mathf.Pow(value, power);
 
         /// <summary>
         /// todo: documentation
@@ -344,7 +375,8 @@ namespace Auxtensions
         /// <param name="value"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public static float Repeat(this float value, float length) => Mathf.Repeat(value, length);
+        public static float Repeat(this float value, float length) 
+            => Mathf.Repeat(value, length);
         
         /// <summary>
         ///     Rounds this <see cref="float"/> using <see cref="Mathf.RoundToInt"/>.
@@ -358,7 +390,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).Round()
         /// </example>
-        public static float Round(this float value) => Mathf.Round(value);
+        public static float Round(this float value) 
+            => Mathf.Round(value);
 
         /// <summary>
         ///     Rounds this <see cref="float"/> to an <see cref="int"/> using <see cref="Mathf.RoundToInt"/>.
@@ -372,21 +405,24 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).RoundToInt()
         /// </example>
-        public static int RoundToInt(this float value) => Mathf.RoundToInt(value);
+        public static int RoundToInt(this float value) 
+            => Mathf.RoundToInt(value);
         
         /// <summary>
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static float Sign(this float value) => Mathf.Sign(value);
+        public static float Sign(this float value) 
+            => Mathf.Sign(value);
         
         /// <summary>
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static float Sin(this float value) => Mathf.Sin(value);
+        public static float Sin(this float value) 
+            => Mathf.Sin(value);
 
         /// <summary>
         /// todo: documentation
@@ -396,7 +432,8 @@ namespace Auxtensions
         /// <param name="currentVelocity"></param>
         /// <param name="smoothTime"></param>
         /// <returns></returns>
-        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime) => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime);
+        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime) 
+            => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime);
 
         /// <summary>
         /// todo: documentation
@@ -407,7 +444,8 @@ namespace Auxtensions
         /// <param name="smoothTime"></param>
         /// <param name="maxSpeed"></param>
         /// <returns></returns>
-        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed);
+        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) 
+            => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed);
 
         /// <summary>
         /// todo: documentation
@@ -419,7 +457,8 @@ namespace Auxtensions
         /// <param name="maxSpeed"></param>
         /// <param name="deltaTime"></param>
         /// <returns></returns>
-        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
+        public static float SmoothDamp(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) 
+            => Mathf.SmoothDamp(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
         
         /// <summary>
         /// todo: documentation
@@ -429,7 +468,8 @@ namespace Auxtensions
         /// <param name="currentVelocity"></param>
         /// <param name="smoothTime"></param>
         /// <returns></returns>
-        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime) => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime);
+        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime) 
+            => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime);
 
         /// <summary>
         /// todo: documentation
@@ -440,7 +480,8 @@ namespace Auxtensions
         /// <param name="smoothTime"></param>
         /// <param name="maxSpeed"></param>
         /// <returns></returns>
-        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed);
+        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed) 
+            => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed);
 
         /// <summary>
         /// todo: documentation
@@ -452,7 +493,8 @@ namespace Auxtensions
         /// <param name="maxSpeed"></param>
         /// <param name="deltaTime"></param>
         /// <returns></returns>
-        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
+        public static float SmoothDampAngle(this float value, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime) 
+            => Mathf.SmoothDampAngle(value, target, ref currentVelocity, smoothTime, maxSpeed, deltaTime);
 
         /// <summary>
         /// todo: documentation
@@ -461,7 +503,8 @@ namespace Auxtensions
         /// <param name="to"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public static float SmoothStep(this float value, float to, float time) => Mathf.SmoothStep(value, to, time);
+        public static float SmoothStep(this float value, float to, float time) 
+            => Mathf.SmoothStep(value, to, time);
 
         /// <summary>
         ///     Calculates the square root of this <see cref="float"/> using <see cref="Mathf.Sqrt"/>.
@@ -475,14 +518,16 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).Sqrt()
         /// </example>
-        public static float Sqrt(this float value) => Mathf.Sqrt(value);
+        public static float Sqrt(this float value) 
+            => Mathf.Sqrt(value);
         
         /// <summary>
         /// todo: documentation
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static float Tan(this float value) => Mathf.Tan(value);
+        public static float Tan(this float value) 
+            => Mathf.Tan(value);
 
         #endregion
 
@@ -569,7 +614,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).Remap(0.0f, 2.0f, 0.0f, 1.0f)
         /// </example>
-        public static float Remap(this float value, float inMin, float inMax, float outMin, float outMax) => outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
+        public static float Remap(this float value, float inMin, float inMax, float outMin, float outMax) 
+            => outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
 
         /// <summary>
         ///     Rounds this <see cref="float"/> to a multiple of the given value.
@@ -586,7 +632,8 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).RoundToMultipleOf(5)
         /// </example>
-        public static float RoundToMultipleOf(this float value, int multiple) => Mathf.Round(value / multiple) * multiple;
+        public static float RoundToMultipleOf(this float value, int multiple) 
+            => Mathf.Round(value / multiple) * multiple;
 
         #endregion
     }

@@ -379,34 +379,6 @@ var newDirection = myDirection.CreateVector2FromVector3xz();
 Debug.Log(newDirection); 
 ```
 
-### `CreateVector3xzFromVector2()`
-Creates a new `Vector3` and assigns its `x` and `z` values from a `Vector2`'s `x` and `y` values. This is useful for converting directions between "2D" and "top down".
-```c#
-var myDirection = new Vector3();
-
-var anotherDirection = new Vector2(0.13f, 0.87f);
-
-myDirection.CreateVector3xzFromVector2(anotherDirection);
-
-// printing "myDirection" would show that its "x" and "z" field values match "anotherDirection"'s x and y
-// field values.
-
-Debug.Log(myDirection);
-```
-
-### `CreateVector3xzFromVector3xy()`
-Creates a new `Vector3` by essentially flipping the original `Vector3`'s `y` field value to a `z` field value.
-```c#
-var myDirection = new Vector3(0.15f, 0.13f, 0);
-
-var newDirection = myDirection.CreateVector3xzFromVector3xy();
-
-// printing "newDirection" would show that the "x" field matches "myDirection"'s "x" field and the "z" field 
-// matches "myDirection"'s "y" field.
-
-Debug.Log(newDirection);
-```
-
 ### `GetMax()`
 Gets the max value amongst all fields on the `Vector3`.
 ```c#
@@ -500,6 +472,46 @@ var rounded = myVector3.RoundToMultipleOf(2);
 // as 10, and the "z" field is rounded to 24.
 
 Debug.Log(rounded);
+```
+
+### `Set3xzFromVector2()`
+Sets this `Vector3`'s `x` and `z` fields from another `Vector2`'s `x` and `y` fields. Useful for converting a 2D `Vector2` direction or position to "top down" `Vector3`.
+```c#
+var topDownDirection = new Vector3();
+
+var some2dDirection = new Vector2(0.13f, 0.87f);
+
+myDirection.Set3xzFromVector2(some2dDirection);
+
+// printing "topDownDirection" would show that its "x" and "z" field values match "some2dDirection"'s x and y
+// field values.
+
+Debug.Log(myDirection);
+```
+
+### `Set3xzFromVector3xy()`
+Flips this `Vector3`'s `y` and `z` fields with one another. Useful for converting a 2D `Vector3` direction or position to "top down" `Vector3`.
+```c#
+var direction = new Vector3(0.14f, 0.81f, 0.0f);
+
+direction.Set3xzFromVector3xy();
+
+// printing "direction" would show that the z value is now the y value and the y value is now the z value.
+
+Debug.Log(direction);
+```
+
+### `ToVector3xzFromVector3xy()`
+Creates a new `Vector3` by essentially flipping the original `Vector3`'s `y` field value with the `z` field value.
+```c#
+var myDirection = new Vector3(0.15f, 0.13f, 0);
+
+var newDirection = myDirection.CreateVector3xzFromVector3xy();
+
+// printing "newDirection" would show that the "x" field matches "myDirection"'s "x" field and the "z" field 
+// matches "myDirection"'s "y" field.
+
+Debug.Log(newDirection);
 ```
 
 ### `TransformDirection()`
