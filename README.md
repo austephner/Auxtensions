@@ -407,12 +407,70 @@ var newDirection = myDirection.CreateVector3xzFromVector3xy();
 Debug.Log(newDirection);
 ```
 
-todo: GetMax<br>
-todo: GetMin<br>
-todo: RandomizeByRange<br>
-todo: RoundToMultipleOf<br>
-todo: RoundToMultipleOf<br>
-todo: TransformDirection<br>
+### `GetMax()`
+Gets the max value amongst all fields on the `Vector3`.
+```c#
+var myVector = new Vector3(0.1f, 100, 9001);
+
+var max = myVector.GetMax();
+
+// printing "max" would show "9001" in the console
+
+Debug.Log(max);
+```
+
+### `GetMin()`
+Gets the min value amongst all fields on the `Vector3`.
+```c#
+var myVector = new Vector3(0.1f, 100, 9001);
+
+var min = myVector.GetMin();
+
+// printing "min" would show "0.1f" in the console
+
+Debug.Log(min);
+```
+
+### `RandomizeByRange()`
+Randomizes all fields on a `Vector3` given a min and max.
+```c#
+var myVector3 = new Vector3(0, 1, 10);
+
+var max = myVector3.GetMax();
+
+myVector3.RandomizeByRange(0, max);
+
+// printing "myVector3" would show that each field in "myVector3" has been randomized.
+
+Debug.Log(myVector3);
+```
+
+### `RoundToMultipleOf()`
+Rounds each field of of a `Vector3` to a multiple of the given value.
+```c#
+var myVector3 = new Vector3(0.15f, 10.0f, 25.0f);
+
+var rounded = myVector3.RoundToMultipleOf(2);
+
+// printing "rounded" to the console would show that the Vector3's "x" field is 0, the "y" field remains 
+// as 10, and the "z" field is rounded to 24.
+
+Debug.Log(rounded);
+```
+
+### `TransformDirection()`
+Calculates a new direction relative to a `Transform`.
+```c#
+var worldDirection = new Vector3(0.15f, 0.0f, 0.98f);
+
+Transform someTransform;
+
+var relativeDirection = worldDirection.Transform(someTransform);
+
+// printing "relativeDirection" would show that the direction has changed relative to the transform.
+
+Debug.Log(relativeDirection);
+```
 
 ## `Vector2` Extensions
 Coming soon!
