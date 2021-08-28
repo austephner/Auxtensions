@@ -112,8 +112,8 @@ for (int i = 0; i < myList.Count; i++)
 }
 ```
 
-### `GetRandom<T>()`
-Returns a random element from within the list.
+### `GetRandomOrDefault<T>()`
+Returns a random element from within the list if possible, otherwise returns the default value of the type `T`.
 ```c#
 var myList = new List<string>() { "red", "orange", "yellow", "green", "blue" };
 

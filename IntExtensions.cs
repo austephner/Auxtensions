@@ -5,7 +5,6 @@ namespace Auxtensions
     /// <summary>
     /// Int extensions which provide additional functionality for <see cref="int"/> typed variables.
     /// </summary>
-    // todo: documentation
     public static class IntExtensions
     {
         #region Mathf Functions

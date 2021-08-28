@@ -73,6 +73,23 @@ namespace Auxtensions
         /// </returns>
         public static T GetRandom<T>(this IList<T> list)
         {
+            return list[UnityEngine.Random.Range(0, list.Count)];
+        }
+
+        /// <summary>
+        ///     Gets a random element from this <see cref="IList{T}"/> if possible, otherwise returns the default of <see cref="T"/>.
+        /// </summary>
+        /// <param name="list">
+        ///     This <see cref="IList{T}"/>.
+        /// </param>
+        /// <typeparam name="T">
+        ///     The type.
+        /// </typeparam>
+        /// <returns>
+        ///     A random element.
+        /// </returns>
+        public static T GetRandomOrDefault<T>(this IList<T> list)
+        {
             return list == null || list.Count == 0 
                 ? default 
                 : list[UnityEngine.Random.Range(0, list.Count)];
