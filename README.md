@@ -3,8 +3,9 @@
 Helpful extensions for common types in C# Unity development.
 
 #### Features
-* Extensions for common types that use Unity's `Mathf` class
 * Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
+* Extensions for common usages of Unity's `Mathf` class
+* Additional utility classes for common operations
 * Full documentation including examples
 
 #### Pitfalls

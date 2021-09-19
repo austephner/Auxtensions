@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Auxtensions
 {
     /// <summary>
-    /// Float extensions which provide additional functionality for <c>float</c> typed variables.
+    ///     Float extensions which provide additional functionality for <see cref="float"/> typed variables. These
+    ///     extensions include common <see cref="Mathf"/> usages where applicable.
     /// </summary>
     // todo: add function attributes similar to Mathf functions such as [FreeFunction(IsThreadSafe = true)]
     // todo: Mathf.Min, Mathf.Max, Mathf.LerpAngle, Mathf.LerpClamped, Mathf.FloatToHalf, Mathf.HalfToFloat, Mathf.GammaToLinearSpace, Mathf.LinearToGammaSpace
@@ -573,10 +575,25 @@ namespace Auxtensions
         ///     Whether or not the <see cref="float"/> is a number.
         /// </returns>
         /// <example>
-        ///     (1.618f).IsNan()
+        ///     (1.618f).IsNaN()
         /// </example>
-        public static bool IsNan(this float value) 
+        public static bool IsNaN(this float value) 
             => float.IsNaN(value);
+
+        /// <summary>
+        ///     Returns <c>0.0f</c> if this <see cref="value"/> is "not a number", otherwise returns the <see cref="value"/>.
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <returns>
+        ///     <c>0.0f</c> if the <see cref="value"/> is "not a number", otherwise returns the <see cref="value"/>.
+        /// </returns>
+        /// <example>
+        ///     (1.6185f).RemoveNaN()
+        /// </example>
+        public static float RemoveNaN(this float value) 
+            => float.IsNaN(value) ? 0 : value;
 
         /// <summary>
         ///     Checks to see if this <see cref="float"/> is outside of a <see cref="min"/> and <see cref="max"/> <see cref="float"/> range.
@@ -605,17 +622,20 @@ namespace Auxtensions
         /// <param name="value">
         ///     This <see cref="float"/> value.
         /// </param>
-        /// <param name="inMin">
+        /// <param name="fromMin">
         ///     The lower input range value.
         /// </param>
-        /// <param name="inMax">
+        /// <param name="fromMax">
         ///     The upper input range value.
         /// </param>
-        /// <param name="outMin">
+        /// <param name="toMin">
         ///     The lower output range value.
         /// </param>
-        /// <param name="outMax">
+        /// <param name="toMax">
         ///     The upper output range value.
+        /// </param>
+        /// <param name="clamp">
+        ///     Clamps the resulting value between the <see cref="toMin"/> value and <see cref="toMax"/> value.
         /// </param>
         /// <returns>
         ///     A remapped <see cref="float"/>.
@@ -623,8 +643,29 @@ namespace Auxtensions
         /// <example>
         ///     (1.618f).Remap(0.0f, 2.0f, 0.0f, 1.0f)
         /// </example>
-        public static float Remap(this float value, float inMin, float inMax, float outMin, float outMax) 
-            => outMin + (value - inMin) * (outMax - outMin) / (inMax - inMin);
+        public static float Remap (this float value, float fromMin, float fromMax, float toMin,  float toMax, bool clamp = true)
+        {
+            var result = (toMax - toMin) * ((value - fromMin) / (fromMax - fromMin)) + toMin;
+            return clamp ? result.Clamp(toMin, toMax) : result;
+        }
+        
+        /// <summary>
+        ///     Rounds this <see cref="float"/> value to a specified number of decimal points.
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="decimalPoints">
+        ///     The number of decimal points to round to.
+        /// </param>
+        /// <returns>
+        ///     A rounded <see cref="float"/> value.
+        /// </returns>
+        /// <example>
+        ///     (1.618f).RoundToDecimalPoints(2)
+        /// </example>
+        public static float RoundToDecimalPoints(this float value, int decimalPoints)
+            => (float) Math.Round(value, decimalPoints);
 
         /// <summary>
         ///     Rounds this <see cref="float"/> to a multiple of the given value.
