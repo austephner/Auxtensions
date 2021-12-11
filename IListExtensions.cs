@@ -71,7 +71,7 @@ namespace Auxtensions
         /// <returns>
         ///     A random element.
         /// </returns>
-        public static T GetRandom<T>(this IList<T> list)
+        public static T Random<T>(this IList<T> list)
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
         }
@@ -88,7 +88,7 @@ namespace Auxtensions
         /// <returns>
         ///     A random element.
         /// </returns>
-        public static T GetRandomOrDefault<T>(this IList<T> list)
+        public static T RandomOrDefault<T>(this IList<T> list)
         {
             return list == null || list.Count == 0 
                 ? default 
@@ -110,7 +110,7 @@ namespace Auxtensions
         /// <returns>
         ///     A random element.
         /// </returns>
-        public static T GetRandomByWeight<T>(this IList<T> list, Func<T, float> getWeight)
+        public static T RandomByWeight<T>(this IList<T> list, Func<T, float> getWeight)
         {
             var accumulatedWeights = new List<float>();
             var totalWeight = 0.0f;
@@ -136,6 +136,29 @@ namespace Auxtensions
             }
 
             return default;
+        }
+        
+        /// <summary>
+        ///     Remove items using a <see cref="Func{T1, T2}"/> to filter them out.
+        /// </summary>
+        /// <param name="list">
+        ///     This <see cref="IList{T}"/>.
+        /// </param>
+        /// <param name="where">
+        ///     The filter function.
+        /// </param>
+        /// <typeparam name="T">
+        ///     The type.
+        /// </typeparam>
+        public static void RemoveWhere<T>(this IList<T> list, Func<T, bool> where)
+        {
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (where?.Invoke(list[i]) == true)
+                {
+                    list.RemoveAt(i);
+                }
+            }
         }
         
         /// <summary>

@@ -1,6 +1,6 @@
-# Auxtensions
+# Auxtensions (WIP)
 #### Summary
-Helpful extensions for common types in C# Unity development.
+Helpful extensions for common types in C# Unity development. The code and documentation is currenlty a work in progress.
 
 #### Features
 * Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
@@ -10,7 +10,13 @@ Helpful extensions for common types in C# Unity development.
 
 #### Pitfalls
 * This API favors usage of `IList<T>` over arrays and `IEnumerables`
-* Although minimal, some Linq is used for `IEnumerable` extensions
+* Some `Linq` is used for `IEnumerable` extensions. You can avoid it by using `IList<T>`
+
+#### Todos
+* Create a Unity package out of this Github page
+* Documentation
+* Complete list of intended extensions
+* Function attributes for IDE and dev insight
 
 # General Usage
 1. Download the repository into your `Assets` folder (if downloading from Git).
@@ -36,507 +42,168 @@ new Vector3(-1, -23, 400).Abs();
 4. ???
 5. Profit
 
-# Contribution
-#### Rules
-1. Code must follow formatting patterns of the existing codebase to retain consistency.
-2. <i>Try to</i> fully document and comment all functions. See below for an example.
-3. Code must go through pull requests before being merged. 
-4. Commits must list all changes to the codebase separated by commas.
-5. Alphabetize functions.
-6. Add your name to the contributors list along with any links you'd like to share!
+# Examples
+There's a ton of functions, a lot of them cover the basics of `Mathf` capabilities so not all of them will be included here. This is not an exhaustive examples section.
+## Floats
 
-#### Function Documentation Example
-* Summary tag
-* Tags for all parameters
-* Use "\<see ...>" tags with a `cref` reference to other functions, types, code, etc.
-* "Returns" tag
-* "Example" tag when needed
 ```c#
-/// <summary>
-///     Rounds this <see cref="float"/> to an <see cref="int"/> using <see cref="Mathf.RoundToInt"/>.
-/// </summary>
-/// <param name="value">
-///     This <see cref="float"/> value.
-/// </param>
-/// <returns>
-///     A rounded <see cref="int"/>.
-/// </returns>
-/// <example>
-///     (1.8215f).RoundToInt()
-/// </example>
-public static int RoundToInt(this float value) => Mathf.RoundToInt(value);
-```
+// Remap or normalize values
+var myCrazyFloat = 173.81245f; 
+var remapped = myCrazyFloat.Remap(0.0f, 200.0f, 0.0f, 1.0f);
 
-The function would then appear like this within JetBrains Rider: <br>
-![Documentation Example](https://i.imgur.com/4aeRhiw.png)
-
-#### Contributors & Credits
-* Austin Renner ([website](https://www.austephner.com/), [GitHub](https://github.com/austephner))
-
-# Detailed Usage
-Please note that this section only covers the majority of complicated functionality. Simple extensions which utilize Unity's `Mathf` library aren't covered as they're self explanatory.
-
-## `IList` Extensions
-### `Append()`
-Adds all elements of one list into another list without using Linq.
-```c#
-var listA = new List<int>() { 0, 1, 2, 3 };
-
-var listB = new List<int>() { 4, 5, 6 };
-
-listA.Append(listB);
-
-// printing "listA" would show all original elements along with all elements from "listB"
-
-foreach (var item in listA) 
+// Check if this float is outside of a range
+var anotherCrazyFloat = 1.618f; 
+if (anotherCrazyFloat.IsOutsideRange(0.0f, 1.0f)) 
 {
-    Debug.Log(item);
-} 
-```
-
-### `Dequeue<T>()`
-Removes the first item from a list and returns it. This replicates behaviour seen in `Queue` collections.
-```c#
-var myList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-var firstItem = myList.Dequeue();
-
-// printing the value of "firstItem" would be "0"
-
-Debug.Log(firstItem);
-
-// printing each element of "myList" would show that "0" is no longer contained inside
-
-for (int i = 0; i < myList.Count; i++) 
-{
-    Debug.Log(myList[i]);
-}
-```
-
-### `GetRandomOrDefault<T>()`
-Returns a random element from within the list if possible, otherwise returns the default value of the type `T`.
-```c#
-var myList = new List<string>() { "red", "orange", "yellow", "green", "blue" };
-
-var randomColor = myList.GetRandom();
-
-// printing the value of "randomColor" would show one of the values found in "myList"
-
-Debug.Log(randomColor);
-```
-
-### `GetRandomByWeight<T>()`
-Returns a random element from within the list, taking into account the item's weight (or it's "chance" of being picked).
-```c#
-class Item 
-{
-    public string name;
-    public float dropRate;
+    Debug.Log("Wow, it's out of the range.");
 }
 
-var items = new List<Item>()
-{
-    new Item() { name = "Apple", dropRate = 1.0f },
-    new Item() { name = "Peach", dropRate = 2.0f },
-    new Item() { name = "Banana", dropRate = 0.5f }
-};
+// Clamp this float to a maximum value, ensuring it never goes over
+var wowAnotherCrazyFloat = 12757.0812f;
+var clamped = wowAnotherCrazyFloat.ClampToMax(100.0f);
 
-var randomItem = items.GetRandomByWeight(item => item.dropRate);
+// Quickly round a float
+var howManyCrazyFloatsAreThere = 8125.812882882f;
+var rounded = howManyCrazyFloatsAreThere.RoundToInt();
 
-// printing the value of "randomItem.name" may reveal the "Peach" item more often than the "Apple" and "Banana" because 
-// it has the highest weight of 2.0f
-
-Debug.Log(randomItem.name);
+// Move this value towards another value
+var velocity = 15.08f;
+velocity = velocity.MoveTowards(20.0f, Time.deltaTime * 10.0f);
 ```
 
-### `Shuffle()`
-Rearranges all items within an `IList<T>`, effectively shuffling them.
+## Ints
+Coming soon.
+
+## IList<T>
 ```c#
-var myItems = new List<int>() { 0, 1, 2, 3, 4, 5 };
+// Get a random item from a list
+var list = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+var randomInt = list.Random();
 
-myItems.Shuffle();
+// Shuffle
+var list = new List<int> { 5, 10, 15, 20 };
+list.Shuffle();
 
-// printing each element of "myItems" would reveal that they have been rearranged to a new order.
+// Dequeue the item in front, like a Queue<T>
+var list = new List<int> { 9, 8, 7, 6, 5 };
+var next = list.Dequeue();
 
-foreach (var item in myItems) 
-{
-    Debug.Log(item);
-}
+// Remove items in the list that meet the criteria
+var list = new List<string> { "Hello", "Test", "Yeup" };
+list.RemoveWhere(item => item.Length > 4);
 ```
-
-### `ShuffleToNew()`
-Like `Shuffle()`, this function will take an `IList<T>` and rearrange its items. Instead of directly editing the source list, it'll return a new `IList<T>` with the rearranged elements.
+#### Random Weighted Selection
+The following example would require configuration through the editor. It shows how to setup a weighted prefab random selector though.
 ```c#
-var myItems = new List<int>() { 0, 1, 2, 3, 4, 5 };
+using UnityEngine;
+using Auxtensions;
+using System.Collections.Generic;
 
-var shuffledItems = myItems.ShuffleToNew();
-
-// printing each element of "shuffledItems" would reveal that they have been rearranged to a new order.
-
-foreach (var item in shuffledItems) 
+public class MyBehaviour : MonoBehaviour 
 {
-    Debug.Log(item);
-}
-```
-
-## `IEnumerator` Extensions
-### `Then()`
-Iterates through one `IEnumerator` then iterates through another `IEnumerator`. Behaves similarly to how one might expect _olde worlde_ Angular promises to work.
-```c#
-IEnumerator Print10() 
-{
-    for (int i = 0; i < 10; i++) 
+    [SerializeField] private List<WeightedPrefab> _weightedPrefabs;
+    
+    public GameObject GetRandomWeightedPrefab() 
     {
-        Debug.Log(i + 1);
-        yield return null;
+        return _weightedPrefabs.RandomByWeight(item => item.weight);
     }
 }
 
-IEnumerator PrintDone() 
+[CreateAssetMenu(menuName = "Weighted Prefab")]
+public class WeightedPrefab : ScriptableObject
 {
-    Debug.Log("Done");
-    yield break;
+    public GameObject prefab;
+    public float weight;
 }
 
-GameObject someGameObject;
-
-someGameObject.StartCoroutine(Print10().Then(PrintDone());
 ```
 
-Alternatively, an `Action` can be used instead of another `IEnumerator`. The original `Then()` function has been overloaded to handle both parameters. 
-
+## Strings
 ```c#
-IEnumerator Print10() 
+// Easily convert from/to JSON with serializable objects
+var json = "{ \"fieldName\": \"value\" }";
+var myObj = json.FromJson<MySerializableClass>();
+
+// Quickly check "is null or whitespace"
+var emptyString = "      ";
+if (emptyString.IsNullOrWhiteSpace()) 
 {
-    for (int i = 0; i < 10; i++) 
-    {
-        Debug.Log(i + 1);
-        yield return null;
-    }
+    Debug.Log("String is null or whitespace!");
 }
 
-GameObject someGameObject;
-
-someGameObject.StartCoroutine(Print10().Then(() => Debug.Log("Done"));
-```
-
-## `IEnumerable` Extensions
-Extensions for the `IEnumerable<T>` types aren't recommended for use due to the fact that they use Linq. Linq is not performant if used extensively. It's recommended to use `IList<T>` instead as arrays aren't supported beyond these `IEnumerable` extensions.
-<br><br>
-Supported:
-- `GetRandom<T>()`
-- `GetRandom<T>(IEnumerable<T> exclude)`<br><br>
-For more information about these functions, it's recommended to take a look at the `IList` extensions.
-  
-## `String` Extensions
-### `FromJson<T>()`
-Returns an object of type `T` using the Unity `JsonUtility` class. Assumes that the string is a serialized JSON object.
-```c#
-[Serializable]
-class Item 
-{
-    public string name;
-    public float dropRate;
-}
-
-var stringJson = "{ \"name\":\"Apple\", \"dropRate\":1.0f }";
-
-var item = stringJson.FromJson<Item>();
-```
-<br>
-Note that string extensions include a function for overwriting an existing object too.
-
-### `FromJsonFile<T>()`
-Returns an object of type `T` using the Unity `JsonUtility` class. Assumes that the string is a filepath.
-```c#
-[Serializable]
-class Item 
-{
-    public string name;
-    public float dropRate;
-}
-
-var filePath = "./Items/Apple.json";
-
-var item = filePath.FromJsonFile<Item>();
-```
-
-### `IsNullOrWhiteSpace()`
-Returns `true` if this string is null or consists only of whitespace.
-```c#
-var myString = "    ";
-
-if (myString.IsNullOrWhiteSpace())
-{
-    Debug.Log("The string is null or whitespace.");
-}
-
-// the above code would print the message because "myString" consists only of whitespace.
-```
-
-### `IsNullOrEmpty()`
-Returns `true` if this string is null or empty.
-```c#
-var myString = "";
-
-if (myString.IsNullOrWhiteSpace())
-{
-    Debug.Log("The string is null or whitespace.");
-}
-
-// the above code would print the message because "myString" is empty.
-```
-
-### `GetLastSplitValue()`
-Returns the last occurrence of an element in an array of strings that been split with the given character. This is extremely useful for extracting file names or directories.
-```c#
-var filePath = "./Configuration/Game/CharacterData.config";
-
+// Get last split value of a huge string. Useful for files and directories.
+var filePath = "C:/My Documents/My File.png";
 var fileName = filePath.GetLastSplitValue('/');
-
-// printing "fileName" would show "CharacterData.config"
-
-Debug.Log(fileName);
+var directory = filePath.PopLastSplitValue('/');
 ```
 
-### `PopLastSplitValue()`
-Removes the last occurrence of an element in an array of strings that have been split with the given character.
+## Char
 ```c#
-var filePath = "./Configuration/Game/CharacterData.config";
-
-var directoryPath = filePath.PopLastSplitValue('/');
-
-// printing "directoryPath" would show "./Configuration/Game"
-
-Debug.Log(directoryPath);
-```
-
-### `CreateRandomStringFromSource()`
-Creates a random `string` consisting of characters from this source `string` with the given length. The length can be any size, it simply helps determine how many random results to generate.
-```c#
-var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-// running this code will print 10 random strings of 3 characters each to the console.
-
-for (int i = 0; i < 10; i++) 
+// Check is digit, special character, period, etc. 
+var c = 'A'; 
+if (c.IsDigit() || c.IsPeriod() || c.IsWhiteSpace || c.IsSpecialCharacter()) 
 {
-    Debug.Log(alphabet.CreateRandomStringFromSource(3));
+    Debug.Log("Everything is A-O-K.");
+}
+
+// Check if letter
+var c = '1'; 
+if (c.IsLetter()) 
+{
+    Debug.Log("It's a letter.");
+}
+else 
+{
+    Debug.Log("It's not a letter.");
 }
 ```
 
-## `Vector3` Extensions
-### `Abs()`
-Calculates a new `Vector3` with absolute values.
+## Vectors
+#### Vector2
+More `Vector2` extensions will be added in time. A lot of the `Vector3` extensions can be applied to `Vector2` as well, it's just not prioritized work right now.
 ```c#
-var myVector3 = new Vector3(-10, -20, -100);
-
-var absVector3 = myVector3.Abs();
-
-// printing "absVector3" would show that each field is the absolute value of its respective field from 
-// the original "myVector3" variable.
-
-Debug.Log(absVector3);
+// Get a random float based in the range from X to Y
+var vector2 = new Vector2(-1.0f, 1.0f);
+var value = vector2.RandomFloatFromRange();
 ```
 
-### `ClampAllFields()`
-Clamps each field of a `Vector3` to the given min and max `float` value.
+#### Vector3
 ```c#
-var myVector3 = new Vector3(0.1f, -2.0f, 13.08f);
+// Clamp the magnitude of a Vector3 
+var currentVelocity = new Vector3(-1.0f, 12.0f, 0.3f);
+var clampedVelocity = currentVelocity.ClampMagnitude(5.0f);
 
-var clampedVector3 = myVector3.ClampAllFields(-1.0f, 1.0f);
+// Convert a Vector3 with values in its X and Y fields to a Vector3 with values in its X and Z fields
+var vector = new Vector3(1.0f, 12.0f);
+var topDownVector = vector.ToVector3xzFromVector3xy();
 
-// printing "clampedVector3" would show that each field has been clamped to a value between -1.0f 
-// and 1.0f
-
-Debug.Log(clampedVector3);
-```
-
-### `ClampMagnitude()`
-Clamps the magnitude of a `Vector3` to the given value.
-```c#
-var myVector3 = new Vector3(0, 10, 0);
-
-var clampedVector3 = myVector3.ClampMagnitude(5);
-
-// printing "myVector3.magnitude" would show that the magnitude is 10.
-
-Debug.Log(myVector3.magnitude);
-
-// printing "clampedVector3.magnitude" would show that the magnitude is 5.
-
-Debug.Log(clampedVector3.magnitude);
-```
-
-### `CreateVector2FromVector3xz()`
-Creates a new `Vector2` whose `x` field value is the `Vector3`'s `x` field value and `y` field value is the `Vector3`'s `z` field value. This is useful for converting directions between "top down" and "2D".
-```c#
-var myDirection = new Vector3(0.15f, 0, 0.83f);
-
-var newDirection = myDirection.CreateVector2FromVector3xz();
-
-// printing "newDirection" would show a Vector2 whose x value is the original Vector3's x value and y
-// value is the original Vector3's z value.
-
-Debug.Log(newDirection); 
-```
-
-### `GetMax()`
-Gets the max value amongst all fields on the `Vector3`.
-```c#
-var myVector = new Vector3(0.1f, 100, 9001);
-
-var max = myVector.GetMax();
-
-// printing "max" would show "9001" in the console
-
-Debug.Log(max);
-```
-
-### `GetMin()`
-Gets the min value amongst all fields on the `Vector3`.
-```c#
-var myVector = new Vector3(0.1f, 100, 9001);
-
-var min = myVector.GetMin();
-
-// printing "min" would show "0.1f" in the console
-
-Debug.Log(min);
-```
-
-### `IsInsideRange()`
-Checks to see if each field of this `Vector3` are within a given min and max `float` value. Useful for determining input, directional, and physics force related thresholds.
-```c#
-var userInput = new Vector3(0.15f, 0.935f);
-
-if (userInput.IsInsideRange(-1.0f, 1.0f)) 
+// Check if all values on a Vector3 are within a float range
+var velocity = new Vector3(12.0f, 0.0f, 1.0f);
+if (velocity.IsMagnitudeInsideRange(0.0f, 1.0f)) 
 {
-    Debug.Log("User is sending valid input.");
+    Debug.Log("Player is walking.");
+}
+else 
+{
+    Debug.Log("Player isn't walking.");
 }
 ```
 
-### `IsMagnitudeInsideRange()`
-Checks to see if this `Vector3`'s magnitude is within a 0 and max `float` value range. Useful for determining speed of movement or deltas.
+## Enumerators
+Checkout [Coroutine Utils](https://github.com/austephner/CoroutineUtils) because it has the same vibe.
 ```c#
-var carSpeed = new Vector3(13, 0, 0.95f);
-
-if (carSpeed.IsMagnitudeInsideRange(20)) 
+private void Start() 
 {
-    Debug.Log("Player is going the speed limit.");
+    StartCoroutine(MyCoroutine().Then(AnotherCoroutine());
+}
+
+private IEnumerator MyCoroutine() 
+{
+    Debug.Log("Hello World");
+}
+
+private IEnumerator AnotherCoroutine() 
+{
+    Debug.Log("Whoop");
 }
 ```
-
-### `IsMagnitudeOutsideRange()`
-Checks to see if this `Vector3`'s magnitude is outside of a 0 to max `float` value range. Useful for determining speed of movement or deltas.
-```c#
-var carSpeed = new Vector3(13, 0, 0.95f);
-
-if (carSpeed.IsMagnitudeOutsideRange(20)) 
-{
-    Debug.Log("Player is speeding! Send the police!");
-}
-```
-
-### `IsOutsideRange()`
-Checks to see if each field of this `Vector3` are outside a given min and max `float` value. Useful for determining input, directional, and physics force related thresholds.
-```c#
-var userInput = new Vector3(0.15f, 0.935f);
-
-if (userInput.IsOutsideRange(-0.5f, 0.5f)) 
-{
-    Debug.Log("User is sending valid input.");
-}
-```
-
-### `RandomizeByRange()`
-Randomizes all fields on a `Vector3` given a min and max.
-```c#
-var myVector3 = new Vector3(0, 1, 10);
-
-var max = myVector3.GetMax();
-
-myVector3.RandomizeByRange(0, max);
-
-// printing "myVector3" would show that each field in "myVector3" has been randomized.
-
-Debug.Log(myVector3);
-```
-
-### `RoundToMultipleOf()`
-Rounds each field of of a `Vector3` to a multiple of the given value.
-```c#
-var myVector3 = new Vector3(0.15f, 10.0f, 25.0f);
-
-var rounded = myVector3.RoundToMultipleOf(2);
-
-// printing "rounded" to the console would show that the Vector3's "x" field is 0, the "y" field remains 
-// as 10, and the "z" field is rounded to 24.
-
-Debug.Log(rounded);
-```
-
-### `Set3xzFromVector2()`
-Sets this `Vector3`'s `x` and `z` fields from another `Vector2`'s `x` and `y` fields. Useful for converting a 2D `Vector2` direction or position to "top down" `Vector3`.
-```c#
-var topDownDirection = new Vector3();
-
-var some2dDirection = new Vector2(0.13f, 0.87f);
-
-myDirection.Set3xzFromVector2(some2dDirection);
-
-// printing "topDownDirection" would show that its "x" and "z" field values match "some2dDirection"'s x and y
-// field values.
-
-Debug.Log(myDirection);
-```
-
-### `Set3xzFromVector3xy()`
-Flips this `Vector3`'s `y` and `z` fields with one another. Useful for converting a 2D `Vector3` direction or position to "top down" `Vector3`.
-```c#
-var direction = new Vector3(0.14f, 0.81f, 0.0f);
-
-direction.Set3xzFromVector3xy();
-
-// printing "direction" would show that the z value is now the y value and the y value is now the z value.
-
-Debug.Log(direction);
-```
-
-### `ToVector3xzFromVector3xy()`
-Creates a new `Vector3` by essentially flipping the original `Vector3`'s `y` field value with the `z` field value.
-```c#
-var myDirection = new Vector3(0.15f, 0.13f, 0);
-
-var newDirection = myDirection.CreateVector3xzFromVector3xy();
-
-// printing "newDirection" would show that the "x" field matches "myDirection"'s "x" field and the "z" field 
-// matches "myDirection"'s "y" field.
-
-Debug.Log(newDirection);
-```
-
-### `TransformDirection()`
-Calculates a new direction relative to a `Transform`.
-```c#
-var worldDirection = new Vector3(0.15f, 0.0f, 0.98f);
-
-Transform someTransform;
-
-var relativeDirection = worldDirection.Transform(someTransform);
-
-// printing "relativeDirection" would show that the direction has changed relative to the transform.
-
-Debug.Log(relativeDirection);
-```
-
-## `Vector2` Extensions
-Coming soon!
-
-## `Float` Extensions
-Coming soon!
-
-## `Int` Extensions
-Coming soon!
-
-## `Char` Extensions
-Coming soon!

@@ -545,6 +545,36 @@ namespace Auxtensions
         #region Custom Extensions
 
         /// <summary>
+        ///     Clamps this <see cref="float"/> to a <see cref="max"/> value.
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="max">
+        ///     The maximum <see cref="float"/> range.
+        /// </param>
+        /// <returns>
+        ///     This clamped <see cref="float"/>.
+        /// </returns>
+        public static float ClampToMax(this float value, float max)
+            => Mathf.Clamp(value, float.MinValue, max);
+        
+        /// <summary>
+        ///     Clamps this <see cref="float"/> to a <see cref="min"/> value.
+        /// </summary>
+        /// <param name="value">
+        ///     This <see cref="float"/> value.
+        /// </param>
+        /// <param name="min">
+        ///     The minimum <see cref="float"/> range.
+        /// </param>
+        /// <returns>
+        ///     This clamped <see cref="float"/>.
+        /// </returns>
+        public static float ClampToMin(this float value, float min)
+            => Mathf.Clamp(value, min, float.MaxValue);
+
+        /// <summary>
         ///     Checks to see if this <see cref="float"/> is within a <see cref="min"/> and <see cref="max"/> <see cref="float"/> range.
         /// </summary>
         /// <param name="value">

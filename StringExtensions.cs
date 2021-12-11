@@ -11,7 +11,7 @@ namespace Auxtensions
         /// <summary>
         ///     Converts this <see cref="string"/> from JSON to the given type <see cref="T"/>.
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/> based JSON.
         /// </param>
         /// <typeparam name="T">
@@ -23,15 +23,15 @@ namespace Auxtensions
         /// <example>
         ///     "{ \"objectName\": \"Unicorn\" }".FromJson&lt;MyType&gt;();
         /// </example>
-        public static T FromJson<T>(this string @string)
+        public static T FromJson<T>(this string value)
         {
-            return JsonUtility.FromJson<T>(@string);
+            return JsonUtility.FromJson<T>(value);
         }
         
         /// <summary>
         ///     Reads all text from this <see cref="string"/> file path and converts content from JSON to the given type <see cref="T"/>.
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This filepath.
         /// </param>
         /// <typeparam name="T">
@@ -43,15 +43,15 @@ namespace Auxtensions
         /// <example>
         ///     "myFolder/MyFile.JSON".FromJsonFile&lt;MyType&gt;();
         /// </example>
-        public static T FromJsonFile<T>(this string @string)
+        public static T FromJsonFile<T>(this string value)
         {
-            return JsonUtility.FromJson<T>(File.ReadAllText(@string));
+            return JsonUtility.FromJson<T>(File.ReadAllText(value));
         }
 
         /// <summary>
         ///     Overwrites the given object by deserializing this <see cref="string"/> which should be in JSON format.     
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/> based JSON.
         /// </param>
         /// <param name="overwriteObject">
@@ -60,15 +60,15 @@ namespace Auxtensions
         /// <example>
         ///     "{ \"objectName\": \"Unicorn\" }".FromJsonOverwrite(new object());
         /// </example>
-        public static void FromJsonOverwrite(this string @string, object overwriteObject)
+        public static void FromJsonOverwrite(this string value, object overwriteObject)
         {
-            JsonUtility.FromJsonOverwrite(@string, overwriteObject);
+            JsonUtility.FromJsonOverwrite(value, overwriteObject);
         }
         
         /// <summary>
         ///     Determines whether or not this <see cref="string"/> is null or whitespace. 
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/>.
         /// </param>
         /// <returns>
@@ -77,15 +77,15 @@ namespace Auxtensions
         /// <example>
         ///     "nonEmptyString".IsNullOrWhiteSpace();
         /// </example>
-        public static bool IsNullOrWhiteSpace(this string @string)
+        public static bool IsNullOrWhiteSpace(this string value)
         {
-            return string.IsNullOrWhiteSpace(@string);
+            return string.IsNullOrWhiteSpace(value);
         }
 
         /// <summary>
         ///     Determines whether or not this <see cref="string"/> is null or empty. 
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/>.
         /// </param>
         /// <returns>
@@ -94,15 +94,15 @@ namespace Auxtensions
         /// <example>
         ///     "nonEmptyString".IsNullOrEmpty();
         /// </example>
-        public static bool IsNullOrEmpty(this string @string)
+        public static bool IsNullOrEmpty(this string value)
         {
-            return string.IsNullOrEmpty(@string);
+            return string.IsNullOrEmpty(value);
         }
 
         /// <summary>
         ///     Gets the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/>.
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/>.
         /// </param>
         /// <param name="separator">
@@ -111,16 +111,16 @@ namespace Auxtensions
         /// <returns>
         ///     The last occurrence of an item after splitting this <see cref="string"/>.
         /// </returns>
-        public static string GetLastSplitValue(this string @string, char separator)
+        public static string GetLastSplitValue(this string value, char separator)
         {
-            var split = @string.Split(separator);
+            var split = value.Split(separator);
             return split.Length > 0 ? split[split.Length - 1] : null;
         }
 
         /// <summary>
         ///     Removes the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/> and then rejoining it.
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/>.
         /// </param>
         /// <param name="separator">
@@ -132,15 +132,15 @@ namespace Auxtensions
         /// <example>
         ///     "myString,separated,ByCommas".PopLastSplitValue(',')
         /// </example>
-        public static string PopLastSplitValue(this string @string, char separator)
+        public static string PopLastSplitValue(this string value, char separator)
         {
-            return string.Join(separator.ToString(), @string.Split(separator));
+            return string.Join(separator.ToString(), value.Split(separator));
         }
         
         /// <summary>
         ///     Creates a new randomly generated <see cref="string"/> based on the characters provided in this <see cref="string"/>.
         /// </summary>
-        /// <param name="string">
+        /// <param name="value">
         ///     This <see cref="string"/>.
         /// </param>
         /// <param name="length">
@@ -152,13 +152,13 @@ namespace Auxtensions
         /// <example>
         ///     "abcdefg".Random(20);
         /// </example>
-        public static string CreateRandomStringFromSource(this string @string, int length = 1)
+        public static string CreateRandomStringFromSource(this string value, int length = 1)
         {
             var result = "";
 
             for (int i = 0; i < length; i++)
             {
-                result += @string[UnityEngine.Random.Range(0, @string.Length)];
+                result += value[UnityEngine.Random.Range(0, value.Length)];
             }
 
             return result;
