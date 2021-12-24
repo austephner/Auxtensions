@@ -1,6 +1,6 @@
 # Auxtensions (WIP)
 #### Summary
-Helpful extensions for common types in C# Unity development. The code and documentation is currenlty a work in progress.
+Helpful extensions for common types in C# Unity development. The code and documentation is currently a work in progress.
 
 #### Features
 * Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
@@ -72,7 +72,7 @@ velocity = velocity.MoveTowards(20.0f, Time.deltaTime * 10.0f);
 ```
 
 ## Ints
-Coming soon.
+Extensions for `int` typed variables exist, but the documentation is coming soon. It's basically the same (and a little more) as the `float` extensions.
 
 ## IList<T>
 ```c#
