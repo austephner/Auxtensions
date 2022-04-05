@@ -27,6 +27,40 @@ namespace Auxtensions
         {
             return JsonUtility.FromJson<T>(value);
         }
+
+        /// <summary>
+        ///     Tries to convert the <see cref="string"/> from JSON to the given type <see cref="T"/>.
+        /// </summary>
+        /// <param name="value">
+        ///     ThIs <see cref="string"/> based JSON.
+        /// </param>
+        /// <param name="result">
+        ///     The result of type <see cref="T"/> if the value can be converted from JSON.
+        /// </param>
+        /// <typeparam name="T">
+        ///     The type to attempt to deserialize <see cref="value"/> to.
+        /// </typeparam>
+        /// <returns>
+        ///     <c>True</c> if <see cref="value"/> can be deserialized from JSON to the given type <see cref="T"/>.
+        /// </returns>
+        /// <example>
+        ///     if ("{ \"objectName\": \"Unicorn\" }".TryFromJson&lt;MyType&gt;()) {
+        ///         Debug.Log("Yup, it works.");
+        ///     }
+        /// </example>
+        public static bool TryFromJson<T>(this string value, out T result)
+        {
+            try
+            {
+                result = value.FromJson<T>();
+                return true;
+            }
+            catch
+            {
+                result = default;
+                return false;
+            }
+        }
         
         /// <summary>
         ///     Reads all text from this <see cref="string"/> file path and converts content from JSON to the given type <see cref="T"/>.
