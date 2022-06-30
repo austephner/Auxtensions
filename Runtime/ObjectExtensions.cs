@@ -3,7 +3,7 @@
 namespace Auxtensions
 {
     /// <summary>
-    /// Object extensions which provide additional functionality for <c>object</c> typed variables.
+    /// Object extensions which provide additional functionality for <see cref="object"/> and Unity's <see cref="Object"/> types.
     /// </summary>
     public static class ObjectExtensions
     {

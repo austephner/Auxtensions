@@ -13,10 +13,12 @@ Helpful extensions for common types in C# Unity development. The code and docume
 * Some `Linq` is used for `IEnumerable` extensions. You can avoid it by using `IList<T>`
 
 #### Todos
-* Create a Unity package out of this Github page
 * Documentation
 * Complete list of intended extensions
 * Function attributes for IDE and dev insight
+
+# All Functions by Type
+TODO (there's a lot)
 
 # General Usage
 1. Download the repository into your `Assets` folder (if downloading from Git).
