@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Auxtensions
 {
@@ -174,7 +175,7 @@ namespace Auxtensions
         {
             for (var i = list.Count; i > 1; i--)
             {
-                var randomIndex = UnityEngine.Random.Range(0, i + 1);
+                var randomIndex = UnityEngine.Random.Range(0, Mathf.Clamp(i + 1, 0, list.Count - 1));
                 var randomValue = list[randomIndex];
                 list[randomIndex] = list[i];
                 list[i] = randomValue;
@@ -199,7 +200,7 @@ namespace Auxtensions
             
             for (var i = list.Count; i > 1; i--)
             {
-                var randomIndex = UnityEngine.Random.Range(0, i + 1);
+                var randomIndex = UnityEngine.Random.Range(0, Mathf.Clamp(i + 1, 0, list.Count - 1));
                 var randomValue = result[randomIndex];
                 result[randomIndex] = result[i];
                 result[i] = randomValue;
