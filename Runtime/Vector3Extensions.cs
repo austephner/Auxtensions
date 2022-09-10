@@ -175,14 +175,6 @@ namespace Auxtensions
         /// <param name="value"> This <see cref="Vector3"/> value. </param>
         /// <returns> A new <see cref="Vector3"/> with its <c>x</c> field matching this <see cref="Vector3"/>'s <c>x</c> field and its <c>z</c> field matching this <see cref="Vector3"/>'s <c>y</c> field. </returns>
         public static Vector3 ToVector3XZFromVector3XY(this Vector3 value) 
-            => new Vector3(value.x, 0, value.y);
-
-        /// <summary> Calculates the transform direction to a new <see cref="Vector3"/> using this <see cref="Vector3"/> as a direction. </summary>
-        /// <param name="value"> This <see cref="Vector3"/> direction. </param>
-        /// <param name="transform"> The <see cref="Transform"/> to use for calculating a relative direction. </param>
-        /// <returns> A transformed direction. </returns>
-        public static Vector3 TransformDirection(this Vector3 value, Transform transform)
-            => transform.TransformDirection(value);
 
         /// <summary> Removes all "NaN" values from each field on this <see cref="Vector3"/>. </summary>
         /// <param name="value">This <see cref="Vector3"/> value.</param>
@@ -207,5 +199,45 @@ namespace Auxtensions
         /// <returns>A new <see cref="Vector2"/>.</returns>
         public static Vector2 ToVector2FromXZ(this Vector3 value)
             => new Vector2(value.x, value.z);
+        
+        /// <summary> Creates a "look rotation" out of this <see cref="Vector3"/> value. </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <returns>A "look rotation" <see cref="Quaternion"/></returns>
+        public static Quaternion ToLookRotation(this Vector3 value) 
+            => Quaternion.LookRotation(value);
+        
+        /// <summary> Creates a "euler" <see cref="Quaternion"/> out of this <see cref="Vector3"/> value. </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <returns>A "euler" <see cref="Quaternion"/></returns>
+        public static Quaternion Euler(this Vector3 value) 
+            => Quaternion.Euler(value);
+
+        /// <summary> Transforms this world direction to a local direction.</summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="transform">The <see cref="Transform"/> to use.</param>
+        /// <returns>A converted direction.</returns>
+        public static Vector3 InverseTransformDirection(this Vector3 value, Transform transform) 
+            => transform.InverseTransformDirection(value);
+        
+        /// <summary> Transforms this local direction to a world direction.</summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="transform">The <see cref="Transform"/> to use.</param>
+        /// <returns>A converted direction.</returns>
+        public static Vector3 TransformDirection(this Vector3 value, Transform transform) 
+            => transform.TransformDirection(value);
+        
+        /// <summary> Transforms this local point into a world point. </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="transform">The <see cref="Transform"/> to use.</param>
+        /// <returns>A converted point.</returns>
+        public static Vector3 TransformPoint(this Vector3 value, Transform transform) 
+            => transform.TransformPoint(value);
+        
+        /// <summary> Transforms this world point into a local point. </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="transform">The <see cref="Transform"/> to use.</param>
+        /// <returns>A converted point.</returns>
+        public static Vector3 InverseTransformPoint(this Vector3 value, Transform transform) 
+            => transform.TransformPoint(value);
     }
 }
