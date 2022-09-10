@@ -10,19 +10,19 @@ namespace Auxtensions
     public static class IListExtensions
     {
         /// <summary>
-        ///     Adds an <see cref="IList{T}"/> onto the end of this <see cref="IList{T}"/>.
+        /// Adds an <see cref="IList{T}"/> onto the end of this <see cref="IList{T}"/>.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <param name="append">
-        ///     The <see cref="IList{T}"/> of items to append.
+        /// The <see cref="IList{T}"/> of items to append.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     This original <see cref="IList{T}"/> but with all items appended from the given <see cref="IList{T}"/> <see cref="append"/>.
+        /// This original <see cref="IList{T}"/> but with all items appended from the given <see cref="IList{T}"/> <see cref="append"/>.
         /// </returns>
         public static IList<T> Append<T>(this IList<T> list, IList<T> append)
         {
@@ -35,16 +35,16 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Gets and removes the first element of this <see cref="IList{T}"/>, similar to a <see cref="Queue{T}"/>'s behaviour.
+        /// Gets and removes the first element of this <see cref="IList{T}"/>, similar to a <see cref="Queue{T}"/>'s behaviour.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     The first element of this <see cref="IList{T}"/>.
+        /// The first element of this <see cref="IList{T}"/>.
         /// </returns>
         public static T Dequeue<T>(this IList<T> list)
         {
@@ -61,16 +61,16 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Gets a random element from this <see cref="IList{T}"/>.
+        /// Gets a random element from this <see cref="IList{T}"/>.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     A random element.
+        /// A random element.
         /// </returns>
         public static T Random<T>(this IList<T> list)
         {
@@ -78,16 +78,16 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Gets a random element from this <see cref="IList{T}"/> if possible, otherwise returns the default of <see cref="T"/>.
+        /// Gets a random element from this <see cref="IList{T}"/> if possible, otherwise returns the default of <see cref="T"/>.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     A random element.
+        /// A random element.
         /// </returns>
         public static T RandomOrDefault<T>(this IList<T> list)
         {
@@ -97,19 +97,19 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Gets a random element from this <see cref="IList{T}"/> based on its <see cref="float"/> weight.
+        /// Gets a random element from this <see cref="IList{T}"/> based on its <see cref="float"/> weight.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <param name="getWeight">
-        ///     A function to check the weight of the given item.
+        /// A function to check the weight of the given item.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     A random element.
+        /// A random element.
         /// </returns>
         public static T RandomByWeight<T>(this IList<T> list, Func<T, float> getWeight)
         {
@@ -140,16 +140,16 @@ namespace Auxtensions
         }
         
         /// <summary>
-        ///     Remove items using a <see cref="Func{T1, T2}"/> to filter them out.
+        /// Remove items using a <see cref="Func{T1, T2}"/> to filter them out.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <param name="where">
-        ///     The filter function.
+        /// The filter function.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         public static void RemoveWhere<T>(this IList<T> list, Func<T, bool> where)
         {
@@ -163,13 +163,13 @@ namespace Auxtensions
         }
         
         /// <summary>
-        ///     Rearranges all elements of this <see cref="IList{T}"/> with random ordering.
+        /// Rearranges all elements of this <see cref="IList{T}"/> with random ordering.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         public static void Shuffle<T>(this IList<T> list)
         {
@@ -183,16 +183,16 @@ namespace Auxtensions
         }
         
         /// <summary>
-        ///     Rearranges all elements of this <see cref="IList{T}"/> into a new <see cref="IList{T}"/>.
+        /// Rearranges all elements of this <see cref="IList{T}"/> into a new <see cref="IList{T}"/>.
         /// </summary>
         /// <param name="list">
-        ///     This <see cref="IList{T}"/>.
+        /// This <see cref="IList{T}"/>.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     A new <see cref="IList{T}"/> with randomly ordered items from this <see cref="IList{T}"/>.
+        /// A new <see cref="IList{T}"/> with randomly ordered items from this <see cref="IList{T}"/>.
         /// </returns>
         public static IList<T> ShuffleToNew<T>(this IList<T> list)
         {

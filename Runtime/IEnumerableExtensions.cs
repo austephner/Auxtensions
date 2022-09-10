@@ -11,40 +11,40 @@ namespace Auxtensions
     public static class IEnumerableExtensions
     {
         /// <summary>
-        ///     Gets a random element from this <see cref="IEnumerable{T}"/>.
+        /// Gets a random element from this <see cref="IEnumerable{T}"/>.
         /// </summary>
         /// <param name="enumerable">
-        ///     This <see cref="IEnumerable{T}"/>.
+        /// This <see cref="IEnumerable{T}"/>.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     A random element.
+        /// A random element.
         /// </returns>
-        public static T GetRandom<T>(this IEnumerable<T> enumerable)
+        public static T RandomOrDefault<T>(this IEnumerable<T> enumerable)
         {
             return enumerable.ElementAtOrDefault(UnityEngine.Random.Range(0, enumerable.Count()));
         }
 
         /// <summary>
-        ///     Gets a random element from this <see cref="IEnumerable{T}"/> with the option to exclude any items from being chosen.
+        /// Gets a random element from this <see cref="IEnumerable{T}"/> with the option to exclude any items from being chosen.
         /// </summary>
         /// <param name="enumerable">
-        ///     This <see cref="IEnumerable{T}"/>.
+        /// This <see cref="IEnumerable{T}"/>.
         /// </param>
         /// <param name="exclude">
-        ///     An <see cref="IEnumerable{T}"/> with elements that should be excluded from the random selection process.
+        /// An <see cref="IEnumerable{T}"/> with elements that should be excluded from the random selection process.
         /// </param>
         /// <typeparam name="T">
-        ///     The type.
+        /// The type.
         /// </typeparam>
         /// <returns>
-        ///     A random element.
+        /// A random element.
         /// </returns>
-        public static T GetRandom<T>(this IEnumerable<T> enumerable, IEnumerable<T> exclude)
+        public static T RandomOrDefault<T>(this IEnumerable<T> enumerable, IEnumerable<T> exclude)
         {
-            return enumerable.Where(e => !exclude.Contains(e)).GetRandom();
+            return enumerable.Where(e => !exclude.Contains(e)).RandomOrDefault();
         }
     }
 }

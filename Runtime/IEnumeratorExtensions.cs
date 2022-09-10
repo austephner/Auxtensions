@@ -9,13 +9,13 @@ namespace Auxtensions
     public static class IEnumeratorExtensions
     {
         /// <summary>
-        ///     Iterates over this <see cref="IEnumerator"/> then iterates over another <see cref="IEnumerator"/> subsequently.
+        /// Iterates over this <see cref="IEnumerator"/> then iterates over another <see cref="IEnumerator"/> subsequently.
         /// </summary>
         /// <param name="enumerator">
-        ///     This <see cref="IEnumerator"/>.
+        /// This <see cref="IEnumerator"/>.
         /// </param>
         /// <param name="run">
-        ///     The subsequent <see cref="IEnumerator"/> to iterate over.
+        /// The subsequent <see cref="IEnumerator"/> to iterate over.
         /// </param>
         public static IEnumerator Then(this IEnumerator enumerator, IEnumerator run)
         {
@@ -24,13 +24,13 @@ namespace Auxtensions
         }
 
         /// <summary>
-        ///     Iterates over this <see cref="IEnumerator"/> then invokes the given <see cref="Action"/>.
+        /// Iterates over this <see cref="IEnumerator"/> then invokes the given <see cref="Action"/>.
         /// </summary>
         /// <param name="enumerator">
-        ///     This <see cref="IEnumerator"/>.
+        /// This <see cref="IEnumerator"/>.
         /// </param>
         /// <param name="action">
-        ///     The subsequent <see cref="Action"/> to invoke.
+        /// The subsequent <see cref="Action"/> to invoke.
         /// </param>
         public static IEnumerator Then(this IEnumerator enumerator, Action action)
         {

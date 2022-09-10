@@ -16,5 +16,13 @@ namespace Auxtensions
         {
             return Random.Range(value.x, value.y);
         }
+        
+        public static Vector2 RemoveNaNs(this Vector2 value)
+        {
+            value.x = value.x.RemoveNaN();
+            value.y = value.y.RemoveNaN();
+
+            return value;
+        }
     }
 }
