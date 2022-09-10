@@ -9,21 +9,11 @@ namespace Auxtensions
     /// </summary>
     public static class IListExtensions
     {
-        /// <summary>
-        /// Adds an <see cref="IList{T}"/> onto the end of this <see cref="IList{T}"/>.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <param name="append">
-        /// The <see cref="IList{T}"/> of items to append.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
-        /// <returns>
-        /// This original <see cref="IList{T}"/> but with all items appended from the given <see cref="IList{T}"/> <see cref="append"/>.
-        /// </returns>
+        /// <summary> Adds an <see cref="IList{T}"/> onto the end of this <see cref="IList{T}"/>. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <param name="append"> The <see cref="IList{T}"/> of items to append. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns> This original <see cref="IList{T}"/> but with all items appended from the given <see cref="IList{T}"/> <see cref="append"/>. </returns>
         public static IList<T> Append<T>(this IList<T> list, IList<T> append)
         {
             for (int i = 0; i < append.Count; i++)
@@ -34,18 +24,10 @@ namespace Auxtensions
             return list;
         }
 
-        /// <summary>
-        /// Gets and removes the first element of this <see cref="IList{T}"/>, similar to a <see cref="Queue{T}"/>'s behaviour.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
-        /// <returns>
-        /// The first element of this <see cref="IList{T}"/>.
-        /// </returns>
+        /// <summary> Gets and removes the first element of this <see cref="IList{T}"/>, similar to a <see cref="Queue{T}"/>'s behaviour. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns> The first element of this <see cref="IList{T}"/>. </returns>
         public static T Dequeue<T>(this IList<T> list)
         {
             if (list == null || list.Count == 0)
@@ -60,35 +42,19 @@ namespace Auxtensions
             return firstItem;
         }
 
-        /// <summary>
-        /// Gets a random element from this <see cref="IList{T}"/>.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
-        /// <returns>
-        /// A random element.
-        /// </returns>
+        /// <summary> Gets a random element from this <see cref="IList{T}"/>. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns> A random element. </returns>
         public static T Random<T>(this IList<T> list)
         {
             return list[UnityEngine.Random.Range(0, list.Count)];
         }
 
-        /// <summary>
-        /// Gets a random element from this <see cref="IList{T}"/> if possible, otherwise returns the default of <see cref="T"/>.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
-        /// <returns>
-        /// A random element.
-        /// </returns>
+        /// <summary> Gets a random element from this <see cref="IList{T}"/> if possible, otherwise returns the default of <see cref="T"/>. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns> A random element. </returns>
         public static T RandomOrDefault<T>(this IList<T> list)
         {
             return list == null || list.Count == 0 
@@ -96,21 +62,11 @@ namespace Auxtensions
                 : list[UnityEngine.Random.Range(0, list.Count)];
         }
 
-        /// <summary>
-        /// Gets a random element from this <see cref="IList{T}"/> based on its <see cref="float"/> weight.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <param name="getWeight">
-        /// A function to check the weight of the given item.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
-        /// <returns>
-        /// A random element.
-        /// </returns>
+        /// <summary> Gets a random element from this <see cref="IList{T}"/> based on its <see cref="float"/> weight. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <param name="getWeight"> A function to check the weight of the given item. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns> A random element. </returns>
         public static T RandomByWeight<T>(this IList<T> list, Func<T, float> getWeight)
         {
             var accumulatedWeights = new List<float>();
@@ -139,18 +95,10 @@ namespace Auxtensions
             return default;
         }
         
-        /// <summary>
-        /// Remove items using a <see cref="Func{T1, T2}"/> to filter them out.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <param name="where">
-        /// The filter function.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
+        /// <summary> Remove items using a <see cref="Func{T1, T2}"/> to filter them out. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <param name="where"> The filter function. </param>
+        /// <typeparam name="T"> The type. </typeparam>
         public static void RemoveWhere<T>(this IList<T> list, Func<T, bool> where)
         {
             for (int i = list.Count - 1; i >= 0; i--)
@@ -162,15 +110,9 @@ namespace Auxtensions
             }
         }
         
-        /// <summary>
-        /// Rearranges all elements of this <see cref="IList{T}"/> with random ordering.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
+        /// <summary> Rearranges all elements of this <see cref="IList{T}"/> with random ordering. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <typeparam name="T"> The type. </typeparam>
         public static void Shuffle<T>(this IList<T> list)
         {
             for (var i = list.Count; i > 1; i--)
@@ -182,18 +124,10 @@ namespace Auxtensions
             }
         }
         
-        /// <summary>
-        /// Rearranges all elements of this <see cref="IList{T}"/> into a new <see cref="IList{T}"/>.
-        /// </summary>
-        /// <param name="list">
-        /// This <see cref="IList{T}"/>.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type.
-        /// </typeparam>
-        /// <returns>
-        /// A new <see cref="IList{T}"/> with randomly ordered items from this <see cref="IList{T}"/>.
-        /// </returns>
+        /// <summary> Rearranges all elements of this <see cref="IList{T}"/> into a new <see cref="IList{T}"/>. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns> A new <see cref="IList{T}"/> with randomly ordered items from this <see cref="IList{T}"/>. </returns>
         public static IList<T> ShuffleToNew<T>(this IList<T> list)
         {
             var result = new List<T>(list);
@@ -206,6 +140,35 @@ namespace Auxtensions
                 result[i] = randomValue;
             }
 
+            return result;
+        }
+        
+        /// <summary> Performs a simple <c>foreach(...)</c>, invoking the given <see cref="Action"/> for each element. </summary>
+        /// <param name="list">This <see cref="IEnumerable{T}"/></param>
+        /// <param name="action">The <see cref="Action"/> to invoke.</param> 
+        /// <typeparam name="T">The type.</typeparam>
+        public static void ForEach<T>(this IList<T> list, Action<T> action)
+        {
+            // a for loop can be used here instead of foreach (more performant)
+            for (var i = 0; i < list.Count; i++)
+            {
+                action?.Invoke(list[i]);
+            }
+        }
+        
+        /// <summary> Creates a new <see cref="IList{T}"/> out of the given <see cref="value"/>. </summary>
+        /// <param name="value">This <see cref="IList{T}"/>.</param>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <returns>A new <see cref="IList{T}"/>.</returns>
+        public static List<T> Clone<T>(this List<T> value)
+        {
+            var result = new List<T>();
+
+            for (int i = 0; i < value.Count; i++)
+            {
+                result.Add(value[i]);
+            }
+            
             return result;
         }
     }
