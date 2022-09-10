@@ -9,6 +9,8 @@ namespace Auxtensions
     /// </summary>
     public static class IListExtensions
     {
+        #region Generic Lists
+        
         /// <summary> Adds an <see cref="IList{T}"/> onto the end of this <see cref="IList{T}"/>. </summary>
         /// <param name="list"> This <see cref="IList{T}"/>. </param>
         /// <param name="append"> The <see cref="IList{T}"/> of items to append. </param>
@@ -171,5 +173,86 @@ namespace Auxtensions
             
             return result;
         }
+
+        /// <summary> Adds all elements from <see cref="concat"/> to this <see cref="List{T}"/>. </summary>
+        /// <param name="list">This <see cref="IList{T}"/>.</param>
+        /// <param name="concat">The <see cref="IList{T}"/> to concatenate.</param>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <returns>This <see cref="IList{T}"/> with all elements from <see cref="concat"/>.</returns>
+        public static IList<T> Concatenate<T>(this IList<T> list, IList<T> concat)
+        {
+            for (int i = 0; i < concat.Count; i++)
+            {
+                list.Add(concat[i]);
+            }
+
+            return list;
+        }
+        
+        #endregion
+
+        #region Type Based Lists
+
+        /// <summary> Calculates the average value given a list of <see cref="Vector3"/>. </summary>
+        /// <param name="list">This <see cref="IList{T}"/>.</param>
+        /// <returns>The average <see cref="Vector3"/>.</returns>
+        public static Vector3 Average(this IList<Vector3> list)
+        {
+            var result = new Vector3();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                result += list[i];
+            }
+            
+            return result / list.Count;
+        }
+        
+        /// <summary> Calculates the average value given a list of <see cref="Vector2"/>. </summary>
+        /// <param name="list">This <see cref="IList{T}"/>.</param>
+        /// <returns>The average <see cref="Vector2"/>.</returns>
+        public static Vector2 Average(this IList<Vector2> list)
+        {
+            var result = new Vector2();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                result += list[i];
+            }
+            
+            return result / list.Count;
+        }
+        
+        /// <summary> Calculates the average value given a list of <see cref="float"/>. </summary>
+        /// <param name="list">This <see cref="IList{T}"/>.</param>
+        /// <returns>The average <see cref="float"/>.</returns>
+        public static float Average(this IList<float> list)
+        {
+            var result = new float();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                result += list[i];
+            }
+            
+            return result / list.Count;
+        }
+        
+        /// <summary> Calculates the average value given a list of <see cref="int"/>. </summary>
+        /// <param name="list">This <see cref="IList{T}"/>.</param>
+        /// <returns>The average <see cref="int"/>.</returns>
+        public static int Average(this IList<int> list)
+        {
+            var result = new int();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                result += list[i];
+            }
+            
+            return result / list.Count;
+        }
+
+        #endregion
     }
 }
