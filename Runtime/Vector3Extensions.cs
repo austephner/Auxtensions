@@ -175,6 +175,7 @@ namespace Auxtensions
         /// <param name="value"> This <see cref="Vector3"/> value. </param>
         /// <returns> A new <see cref="Vector3"/> with its <c>x</c> field matching this <see cref="Vector3"/>'s <c>x</c> field and its <c>z</c> field matching this <see cref="Vector3"/>'s <c>y</c> field. </returns>
         public static Vector3 ToVector3XZFromVector3XY(this Vector3 value) 
+            => new Vector3(value.x, 0, value.y);
 
         /// <summary> Removes all "NaN" values from each field on this <see cref="Vector3"/>. </summary>
         /// <param name="value">This <see cref="Vector3"/> value.</param>
