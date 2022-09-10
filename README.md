@@ -152,6 +152,13 @@ if (numberString.TryParseToInt(out var result))
 {
     Debug.Log("Yep, it's a number");
 }
+
+// Get a prefab from a path
+var myPrefabResourcePath = "Resources/MyPrefab"; 
+var resource = myPrefabResourcePath.LoadResource();
+
+// or asynchronously...
+var resourceRequest = myPrefabResourcePath.LoadResourceAsync();
 ```
 
 ## Char

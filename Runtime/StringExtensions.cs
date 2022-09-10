@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 using UnityEngine;
 
 namespace Auxtensions
@@ -166,5 +167,26 @@ namespace Auxtensions
         {
             return bool.TryParse(value, out result);
         }
+
+        /// <summary> Loads a resource using this <see cref="string"/> as a path. </summary>
+        /// <param name="path">This <see cref="string"/> path.</param>
+        /// <typeparam name="T">The <see cref="Object"/> type to load.</typeparam>
+        /// <returns>The resource if found.</returns>
+        public static T LoadResource<T>(this string path) where T : Object
+            => Resources.Load<T>(path);
+
+        /// <summary> Loads all resources using this <see cref="string"/> as a path. </summary>
+        /// <param name="path">This <see cref="string"/> path.</param>
+        /// <typeparam name="T">The <see cref="Object"/> type to load.</typeparam>
+        /// <returns>The resources if found.</returns>
+        public static T[] LoadResources<T>(this string path) where T : Object
+            => Resources.LoadAll<T>(path);
+
+        /// <summary> Loads a resource asynchronously using this <see cref="string"/> as a path. </summary>
+        /// <param name="path">This <see cref="string"/> path.</param>
+        /// <typeparam name="T">The <see cref="Object"/> type to load.</typeparam>
+        /// <returns>A <see cref="ResourceRequest"/> representing the asynchronous process.</returns>
+        public static ResourceRequest LoadResourcesAsync<T>(this string path) where T : Object
+            => Resources.LoadAsync<T>(path);
     }
 }
