@@ -1,12 +1,24 @@
 # Auxtensions (WIP)
 #### Summary
-Helpful extensions for common types in C# Unity development. The code and documentation is currently a work in progress.
+Helpful extensions for common types in C# Unity development. The code and documentation is currently a work in progress, but functions are named obviously.
 
 #### Features
-* Extensions for `string`, `char`, `float`, `int`, `Vector3`/`Vector2`, and more
-* Extensions for common usages of Unity's `Mathf` class
+* Extensions for a multitude of types
+* Extensions for common usages of Unity's `Mathf` class in relation to `int` and `float`
 * Additional utility classes for common operations
 * Full documentation including examples
+
+#### All Supported Types
+* `string`
+* `char`
+* `float`
+* `int`
+* `Vector2` & `Vector3`
+* `Quaternion`
+* `IList`
+* `IEnumerable`
+* `IEnumerator`
+* `IDictionary`
 
 #### Pitfalls
 * This API favors usage of `IList<T>` over arrays and `IEnumerables`
@@ -16,12 +28,13 @@ Helpful extensions for common types in C# Unity development. The code and docume
 * Documentation
 * Complete list of intended extensions
 * Function attributes for IDE and dev insight
+* Support for arrays, not just `IList` and `IEnumerable` (coming in version 1.1.x)
 
 # All Functions by Type
 TODO (there's a lot)
 
-# General Usage
-1. Download the repository into your `Assets` folder (if downloading from Git).
+# Usage
+1. Install the package with Package Manager OR download the repository into your `Assets` folder (if downloading from Git) 
 2. Import the Auxtensions namespace into a C# file.
 
 ```c#
@@ -37,7 +50,7 @@ using Auxtensions;
 // Round a float value to an integer.
 (1.71248f).RoundToInt();
 
-// Reassign the value of each dimension on a Vector3 to its absolute value.
+// Get a new Vector3 full of the absolute values of the current one
 new Vector3(-1, -23, 400).Abs();
 ```
 
@@ -45,7 +58,7 @@ new Vector3(-1, -23, 400).Abs();
 5. Profit
 
 # Examples
-There's a ton of functions, a lot of them cover the basics of `Mathf` capabilities so not all of them will be included here. This is not an exhaustive examples section.
+Note that this isn't an exhaustive list, the API has dozens of extension methods not listed here.
 ## Floats
 
 ```c#
@@ -133,10 +146,12 @@ if (emptyString.IsNullOrWhiteSpace())
     Debug.Log("String is null or whitespace!");
 }
 
-// Get last split value of a huge string. Useful for files and directories.
-var filePath = "C:/My Documents/My File.png";
-var fileName = filePath.GetLastSplitValue('/');
-var directory = filePath.PopLastSplitValue('/');
+// Try to parse a string to an int
+var numberString = "100";
+if (numberString.TryParseToInt(out var result))
+{
+    Debug.Log("Yep, it's a number");
+}
 ```
 
 ## Char

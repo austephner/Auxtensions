@@ -11,18 +11,10 @@ namespace Auxtensions
         /// <summary>
         /// Converts this <see cref="string"/> from JSON to the given type <see cref="T"/>.
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/> based JSON.
-        /// </param>
-        /// <typeparam name="T">
-        /// The output type.
-        /// </typeparam>
-        /// <returns>
-        /// A deserialized object of type <see cref="T"/>.
-        /// </returns>
-        /// <example>
-        /// "{ \"objectName\": \"Unicorn\" }".FromJson&lt;MyType&gt;();
-        /// </example>
+        /// <param name="value"> This <see cref="string"/> based JSON. </param>
+        /// <typeparam name="T"> The output type. </typeparam>
+        /// <returns> A deserialized object of type <see cref="T"/>. </returns>
+        /// <example> "{ \"objectName\": \"Unicorn\" }".FromJson&lt;MyType&gt;(); </example>
         public static T FromJson<T>(this string value)
         {
             return JsonUtility.FromJson<T>(value);
@@ -31,18 +23,10 @@ namespace Auxtensions
         /// <summary>
         /// Tries to convert the <see cref="string"/> from JSON to the given type <see cref="T"/>.
         /// </summary>
-        /// <param name="value">
-        /// ThIs <see cref="string"/> based JSON.
-        /// </param>
-        /// <param name="result">
-        /// The result of type <see cref="T"/> if the value can be converted from JSON.
-        /// </param>
-        /// <typeparam name="T">
-        /// The type to attempt to deserialize <see cref="value"/> to.
-        /// </typeparam>
-        /// <returns>
-        /// <c>True</c> if <see cref="value"/> can be deserialized from JSON to the given type <see cref="T"/>.
-        /// </returns>
+        /// <param name="value"> ThIs <see cref="string"/> based JSON. </param>
+        /// <param name="result"> The result of type <see cref="T"/> if the value can be converted from JSON. </param>
+        /// <typeparam name="T"> The type to attempt to deserialize <see cref="value"/> to. </typeparam>
+        /// <returns> <c>True</c> if <see cref="value"/> can be deserialized from JSON to the given type <see cref="T"/>. </returns>
         /// <example>
         /// if ("{ \"objectName\": \"Unicorn\" }".TryFromJson&lt;MyType&gt;()) {
         ///     Debug.Log("Yup, it works.");
@@ -65,18 +49,10 @@ namespace Auxtensions
         /// <summary>
         /// Reads all text from this <see cref="string"/> file path and converts content from JSON to the given type <see cref="T"/>.
         /// </summary>
-        /// <param name="value">
-        /// This filepath.
-        /// </param>
-        /// <typeparam name="T">
-        /// The output type.
-        /// </typeparam>
-        /// <returns>
-        /// A deserialized object of type <see cref="T"/>.
-        /// </returns>
-        /// <example>
-        /// "myFolder/MyFile.JSON".FromJsonFile&lt;MyType&gt;();
-        /// </example>
+        /// <param name="value"> This filepath. </param>
+        /// <typeparam name="T"> The output type. </typeparam>
+        /// <returns> A deserialized object of type <see cref="T"/>. </returns>
+        /// <example> "myFolder/MyFile.JSON".FromJsonFile&lt;MyType&gt;(); </example>
         public static T FromJsonFile<T>(this string value)
         {
             return JsonUtility.FromJson<T>(File.ReadAllText(value));
@@ -85,15 +61,9 @@ namespace Auxtensions
         /// <summary>
         /// Overwrites the given object by deserializing this <see cref="string"/> which should be in JSON format.     
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/> based JSON.
-        /// </param>
-        /// <param name="overwriteObject">
-        /// The <see cref="object"/> to overwrite.
-        /// </param>
-        /// <example>
-        /// "{ \"objectName\": \"Unicorn\" }".FromJsonOverwrite(new object());
-        /// </example>
+        /// <param name="value"> This <see cref="string"/> based JSON. </param>
+        /// <param name="overwriteObject"> The <see cref="object"/> to overwrite. </param>
+        /// <example> "{ \"objectName\": \"Unicorn\" }".FromJsonOverwrite(new object()); </example>
         public static void FromJsonOverwrite(this string value, object overwriteObject)
         {
             JsonUtility.FromJsonOverwrite(value, overwriteObject);
@@ -102,15 +72,9 @@ namespace Auxtensions
         /// <summary>
         /// Determines whether or not this <see cref="string"/> is null or whitespace. 
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/>.
-        /// </param>
-        /// <returns>
-        /// <c>True</c> if this <see cref="string"/> is null or whitespace, otherwise <c>false</c>.
-        /// </returns>
-        /// <example>
-        /// "nonEmptyString".IsNullOrWhiteSpace();
-        /// </example>
+        /// <param name="value"> This <see cref="string"/>. </param>
+        /// <returns> <c>True</c> if this <see cref="string"/> is null or whitespace, otherwise <c>false</c>. </returns>
+        /// <example> "nonEmptyString".IsNullOrWhiteSpace(); </example>
         public static bool IsNullOrWhiteSpace(this string value)
         {
             return string.IsNullOrWhiteSpace(value);
@@ -119,15 +83,9 @@ namespace Auxtensions
         /// <summary>
         /// Determines whether or not this <see cref="string"/> is null or empty. 
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/>.
-        /// </param>
-        /// <returns>
-        /// <c>True</c> if this <see cref="string"/> is null or empty, otherwise <c>false</c>.
-        /// </returns>
-        /// <example>
-        /// "nonEmptyString".IsNullOrEmpty();
-        /// </example>
+        /// <param name="value"> This <see cref="string"/>. </param>
+        /// <returns> <c>True</c> if this <see cref="string"/> is null or empty, otherwise <c>false</c>. </returns>
+        /// <example> "nonEmptyString".IsNullOrEmpty(); </example>
         public static bool IsNullOrEmpty(this string value)
         {
             return string.IsNullOrEmpty(value);
@@ -136,15 +94,9 @@ namespace Auxtensions
         /// <summary>
         /// Gets the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/>.
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/>.
-        /// </param>
-        /// <param name="separator">
-        /// The <see cref="char"/> separator value.
-        /// </param>
-        /// <returns>
-        /// The last occurrence of an item after splitting this <see cref="string"/>.
-        /// </returns>
+        /// <param name="value"> This <see cref="string"/>. </param>
+        /// <param name="separator"> The <see cref="char"/> separator value. </param>
+        /// <returns> The last occurrence of an item after splitting this <see cref="string"/>. </returns>
         public static string GetLastSplitValue(this string value, char separator)
         {
             var split = value.Split(separator);
@@ -154,18 +106,10 @@ namespace Auxtensions
         /// <summary>
         /// Removes the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/> and then rejoining it.
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/>.
-        /// </param>
-        /// <param name="separator">
-        /// The <see cref="char"/> separator value.
-        /// </param>
-        /// <returns>
-        /// The original <see cref="string"/> with the final occurrence of the <see cref="separator"/> split from the end.
-        /// </returns>
-        /// <example>
-        /// "myString,separated,ByCommas".PopLastSplitValue(',')
-        /// </example>
+        /// <param name="value"> This <see cref="string"/>. </param>
+        /// <param name="separator"> The <see cref="char"/> separator value. </param>
+        /// <returns> The original <see cref="string"/> with the final occurrence of the <see cref="separator"/> split from the end. </returns>
+        /// <example> "myString,separated,ByCommas".PopLastSplitValue(',') </example>
         public static string PopLastSplitValue(this string value, char separator)
         {
             return string.Join(separator.ToString(), value.Split(separator));
@@ -174,18 +118,10 @@ namespace Auxtensions
         /// <summary>
         /// Creates a new randomly generated <see cref="string"/> based on the characters provided in this <see cref="string"/>.
         /// </summary>
-        /// <param name="value">
-        /// This <see cref="string"/>.
-        /// </param>
-        /// <param name="length">
-        /// The "length" or number of characters to use for the resulting <see cref="string"/>.
-        /// </param>
-        /// <returns>
-        /// A randomly generated <see cref="string"/>.
-        /// </returns>
-        /// <example>
-        /// "abcdefg".Random(20);
-        /// </example>
+        /// <param name="value"> This <see cref="string"/>. </param>
+        /// <param name="length"> The "length" or number of characters to use for the resulting <see cref="string"/>. </param>
+        /// <returns> A randomly generated <see cref="string"/>. </returns>
+        /// <example> "abcdefg".Random(20); </example>
         public static string CreateRandomStringFromSource(this string value, int length = 1)
         {
             var result = "";
@@ -196,6 +132,39 @@ namespace Auxtensions
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Tries to parse this <see cref="string"/> to an <see cref="int"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="string"/>.</param>
+        /// <param name="result">The result <see cref="int"/> if the operation was successful.</param>
+        /// <returns><c>true</c> if the operation was successful.</returns>
+        public static bool TryParseToInt(this string value, out int result)
+        {
+            return int.TryParse(value, out result);
+        }
+        
+        /// <summary>
+        /// Tries to parse this <see cref="string"/> to an <see cref="float"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="string"/>.</param>
+        /// <param name="result">The result <see cref="float"/> if the operation was successful.</param>
+        /// <returns><c>true</c> if the operation was successful.</returns>
+        public static bool TryParseToFloat(this string value, out float result)
+        {
+            return float.TryParse(value, out result);
+        }
+        
+        /// <summary>
+        /// Tries to parse this <see cref="string"/> to an <see cref="bool"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="string"/>.</param>
+        /// <param name="result">The result <see cref="bool"/> if the operation was successful.</param>
+        /// <returns><c>true</c> if the operation was successful.</returns>
+        public static bool TryParseToBool(this string value, out bool result)
+        {
+            return bool.TryParse(value, out result);
         }
     }
 }
