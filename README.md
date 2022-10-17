@@ -1,6 +1,6 @@
-# Auxtensions (WIP)
+# Auxtensions (1.0.16)
 #### Summary
-Helpful extensions for common types in C# Unity development. The code and documentation is currently a work in progress, but functions are named obviously.
+Helpful auxiliary extensions for common types in C# Unity development. The code and documentation is currently a work in progress, but functions are named obviously.
 
 #### Features
 * Extensions for a multitude of types
