@@ -103,6 +103,15 @@ namespace Auxtensions
         public static bool IsOutsideRange(this int value, int min, int max, bool inclusive = false)
             => inclusive ? value <= min || value >= max : value < min && value > max;
 
+        public static int Clamp(this int value, int min, int max)
+            => Mathf.Clamp(value, min, max);
+
+        public static int ClampToMax(this int value, int max)
+            => Mathf.Clamp(value, int.MinValue, max);
+
+        public static int ClampToMin(this int value, int min)
+            => Mathf.Clamp(value, min, int.MaxValue);
+
         #endregion
     }
 }

@@ -1,4 +1,4 @@
-# Auxtensions (1.0.16)
+# Auxtensions (1.0.17)
 #### Summary
 Helpful auxiliary extensions for common types in C# Unity development. The code and documentation is currently a work in progress, but functions are named obviously.
 
