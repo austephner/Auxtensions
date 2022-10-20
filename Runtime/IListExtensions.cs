@@ -133,16 +133,25 @@ namespace Auxtensions
         public static IList<T> ShuffleToNew<T>(this IList<T> list)
         {
             var result = new List<T>(list);
-            
-            for (var i = list.Count; i > 1; i--)
+
+            for (int i = 0; i < list.Count; i++)
             {
-                var randomIndex = UnityEngine.Random.Range(0, Mathf.Clamp(i + 1, 0, list.Count - 1));
-                var randomValue = result[randomIndex];
-                result[randomIndex] = result[i];
-                result[i] = randomValue;
+                list.SwapElementsAt(i, UnityEngine.Random.Range(0, list.Count));
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Replaces an element at the <see cref="fromIndex"/> with the element at the <see cref="toIndex"/>.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="fromIndex"></param>
+        /// <param name="toIndex"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void SwapElementsAt<T>(this IList<T> list, int fromIndex, int toIndex)
+        {
+            (list[toIndex], list[fromIndex]) = (list[fromIndex], list[toIndex]);
         }
         
         /// <summary> Performs a simple <c>foreach(...)</c>, invoking the given <see cref="Action"/> for each element. </summary>
