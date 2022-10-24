@@ -115,15 +115,15 @@ namespace Auxtensions
         /// <summary> Rearranges all elements of this <see cref="IList{T}"/> with random ordering. </summary>
         /// <param name="list"> This <see cref="IList{T}"/>. </param>
         /// <typeparam name="T"> The type. </typeparam>
-        public static void Shuffle<T>(this IList<T> list)
+        /// <returns>Returns itself to make chaining functions easier.</returns>
+        public static IList<T> Shuffle<T>(this IList<T> list)
         {
-            for (var i = list.Count; i > 1; i--)
+            for (int i = 0; i < list.Count; i++)
             {
-                var randomIndex = UnityEngine.Random.Range(0, Mathf.Clamp(i + 1, 0, list.Count - 1));
-                var randomValue = list[randomIndex];
-                list[randomIndex] = list[i];
-                list[i] = randomValue;
+                list.SwapElementsAt(i, UnityEngine.Random.Range(0, list.Count));
             }
+
+            return list;
         }
         
         /// <summary> Rearranges all elements of this <see cref="IList{T}"/> into a new <see cref="IList{T}"/>. </summary>
