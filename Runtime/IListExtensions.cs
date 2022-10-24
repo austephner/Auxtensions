@@ -136,7 +136,7 @@ namespace Auxtensions
 
             for (int i = 0; i < list.Count; i++)
             {
-                list.SwapElementsAt(i, UnityEngine.Random.Range(0, list.Count));
+                result.SwapElementsAt(i, UnityEngine.Random.Range(0, result.Count));
             }
 
             return result;
