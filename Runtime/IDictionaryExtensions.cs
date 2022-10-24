@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Auxtensions
 {
@@ -11,7 +12,14 @@ namespace Auxtensions
         /// <typeparam name="T">The key type.</typeparam>
         /// <typeparam name="K">The value type.</typeparam>
         /// <returns>An element or default value.</returns>
+        [Obsolete("Use RandomKeyOrDefault() or RandomValueOrDefault()")]
         public static K RandomOrDefault<T, K>(this IDictionary<T, K> value)
-            => value.Count > 0 ? value[value.Keys.RandomOrDefault()] : default;
+            => value.RandomValueOrDefault();
+
+        public static K RandomValueOrDefault<T, K>(this IDictionary<T, K> dictionary)
+            => dictionary.Count > 0 ? dictionary[dictionary.Keys.RandomOrDefault()] : default;
+
+        public static T RandomKeyOrDefault<T, K>(this IDictionary<T, K> dictionary)
+            => dictionary.Count > 0 ? dictionary.Keys.RandomOrDefault() : default;
     }
 }
