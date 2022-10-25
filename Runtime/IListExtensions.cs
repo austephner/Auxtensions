@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Auxtensions
@@ -62,6 +63,18 @@ namespace Auxtensions
             return list == null || list.Count == 0 
                 ? default 
                 : list[UnityEngine.Random.Range(0, list.Count)];
+        }
+
+        /// <summary>
+        /// Gets a random element that meets the given condition. This is a WIP/test extension which may not be considered entirely efficient or performant yet.
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T RandomWhere<T>(this IList<T> list, Func<T, bool> condition)
+        {
+            return list.ShuffleToNew().Where(condition).RandomOrDefault(); 
         }
 
         /// <summary> Gets a random element from this <see cref="IList{T}"/> based on its <see cref="float"/> weight. </summary>
