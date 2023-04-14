@@ -240,5 +240,25 @@ namespace Auxtensions
         /// <returns>A converted point.</returns>
         public static Vector3 InverseTransformPoint(this Vector3 value, Transform transform) 
             => transform.TransformPoint(value);
+
+        /// <summary> Creates a <see cref="Quaternion"/> rotation based on this <see cref="from"/> and <see cref="to"/> directions.</summary>
+        /// <param name="from">This <see cref="Vector3"/> direction.</param>
+        /// <param name="to">The target direction.</param>
+        /// <returns>A <see cref="Quaternion"/>.</returns>
+        public static Quaternion FromToRotation(this Vector3 from, Vector3 to)
+            => Quaternion.FromToRotation(from, to);
+
+        /// <summary> Creates a "look rotation" based on this <see cref="Vector3"/>. </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <returns>A <see cref="Quaternion"/>.</returns>
+        public static Quaternion LookRotation(this Vector3 value)
+            => Quaternion.LookRotation(value);
+
+        /// <summary> Creates a "look rotation" based on this <see cref="Vector3"/>. </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="upAxis">The upwards axis.</param>
+        /// <returns>A <see cref="Quaternion"/>.</returns>
+        public static Quaternion LookRotation(this Vector3 value, Vector3 upAxis)
+            => Quaternion.LookRotation(value, upAxis);
     }
 }

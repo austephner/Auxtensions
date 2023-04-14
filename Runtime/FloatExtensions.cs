@@ -266,6 +266,17 @@ namespace Auxtensions
 
         #endregion
 
+        #region Quaternion Operations
+
+        /// <summary> Creates a rotation based on this value as an angle in degrees, around the given <see cref="axis"/>. </summary>
+        /// <param name="value">This <see cref="float"/> angle in degrees.</param>
+        /// <param name="axis">The axis to rotate around.</param>
+        /// <returns>A <see cref="Quaternion"/>.</returns>
+        public static Quaternion AngleAxis(this float value, Vector3 axis) 
+            => Quaternion.AngleAxis(value, axis);
+
+        #endregion
+
         #region Custom Extensions
 
         /// <summary> Clamps this <see cref="float"/> to a <see cref="max"/> value. </summary>

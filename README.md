@@ -1,12 +1,14 @@
-# Auxtensions (1.0.22) [WIP]
+# Auxtensions (1.1.0) [WIP]
 #### Summary
 Helpful auxiliary extensions for common types in C# Unity development. The code and documentation is currently a work in progress, but functions are named obviously enough. **Please leave feedback and feel free to make critiques as I improve this repo!**
 
 #### Features
 * Extensions for a multitude of types
 * Extensions for common usages of Unity's `Mathf` class in relation to `int` and `float`
+* Extensions to replace static functions for `Vector3` and `Quaternion` 
+* Seriously, there's so many extensions...
 * Additional utility classes for common operations
-* Full documentation including examples
+* Almost entirely documented
 
 #### All Supported Types
 * `string`
