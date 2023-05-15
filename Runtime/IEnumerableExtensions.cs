@@ -38,5 +38,16 @@ namespace Auxtensions
         {
             foreach (var element in enumerable) action?.Invoke(element);
         }
+
+        /// <summary>
+        /// Creates a new <see cref="Queue{T}"/> out of this <see cref="Enumerable"/>.
+        /// </summary>
+        /// <param name="enumerable">This <see cref="Enumerable"/></param>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <returns>A new <see cref="Queue{T}"/></returns>
+        public static Queue<T> ToQueue<T>(this IEnumerable<T> enumerable)
+        {
+            return new Queue<T>(enumerable);
+        }
     }
 }

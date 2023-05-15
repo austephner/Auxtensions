@@ -1,4 +1,4 @@
-# Auxtensions (1.1.0) [WIP]
+# Auxtensions (1.1.1)
 #### Summary
 Helpful auxiliary extensions for common types in C# Unity development. The code and documentation is currently a work in progress, but functions are named obviously enough. **Please leave feedback and feel free to make critiques as I improve this repo!**
 
