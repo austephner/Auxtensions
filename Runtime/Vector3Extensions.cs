@@ -260,5 +260,82 @@ namespace Auxtensions
         /// <returns>A <see cref="Quaternion"/>.</returns>
         public static Quaternion LookRotation(this Vector3 value, Vector3 upAxis)
             => Quaternion.LookRotation(value, upAxis);
+        
+        /// <summary>
+        /// Remaps the X, Y, and Z values to the given ranges.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="fromMin">The current "min" value.</param>
+        /// <param name="toMin">The target "min" value.</param>
+        /// <param name="fromMax">The current "max" value.</param>
+        /// <param name="toMax">The target "max" value.</param>
+        /// <returns>A remapped <see cref="Vector3"/>.</returns>
+        /// <example>
+        /// var vector = new Vector3(0.123f, 0, 812.831f);
+        /// var remapped = vector.RemapAll(0, 0, 1000, 1);
+        /// </example>
+        public static Vector3 RemapAll(this Vector3 value, float fromMin, float toMin, float fromMax, float toMax)
+        {
+            value.x = value.x.Remap(fromMin, fromMax, toMin, toMax);
+            value.y = value.y.Remap(fromMin, fromMax, toMin, toMax);
+            value.z = value.z.Remap(fromMin, fromMax, toMin, toMax);
+            return value;
+        }
+
+        /// <summary>
+        /// Sets each value of this <see cref="Vector3"/> and returns the updated value. This makes it easy to update
+        /// a <see cref="Vector3"/> inline and use its return value to chain or continue using extension functions.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="x">The next X value.</param>
+        /// <param name="y">The next Y value.</param>
+        /// <param name="z">The next Z value.</param>
+        /// <returns></returns>
+        public static Vector3 Set(this Vector3 value, float x, float y, float z)
+        {
+            value.x = x;
+            value.y = y;
+            value.z = z;
+            return value;
+        }
+
+        /// <summary>
+        /// Sets the X value of this <see cref="Vector3"/> and returns the updated value. This makes it easy to update
+        /// a <see cref="Vector3"/> inline and use its return value to chain or continue using extension functions.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="x">The next X value.</param>
+        /// <returns></returns>
+        public static Vector3 SetX(this Vector3 value, float x)
+        {
+            value.x = x;
+            return value;
+        }
+        
+        /// <summary>
+        /// Sets the Y value of this <see cref="Vector3"/> and returns the updated value. This makes it easy to update
+        /// a <see cref="Vector3"/> inline and use its return value to chain or continue using extension functions.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="y">The next Y value.</param>
+        /// <returns></returns>
+        public static Vector3 SetY(this Vector3 value, float y)
+        {
+            value.y = y;
+            return value;
+        }
+        
+        /// <summary>
+        /// Sets the Z value of this <see cref="Vector3"/> and returns the updated value. This makes it easy to update
+        /// a <see cref="Vector3"/> inline and use its return value to chain or continue using extension functions.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="z">The nezt Z value.</param>
+        /// <returns></returns>
+        public static Vector3 SetZ(this Vector3 value, float z)
+        {
+            value.z = z;
+            return value;
+        }
     }
 }
