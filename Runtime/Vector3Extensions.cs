@@ -337,5 +337,59 @@ namespace Auxtensions
             value.z = z;
             return value;
         }
+
+        /// <summary>
+        /// Multiplies this <see cref="Vector3"/> by the given <see cref="float"/> <see cref="multiplier"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="multiplier">The <see cref="float"/> value to multiply by.</param>
+        /// <returns>The product of <see cref="value"/> and <see cref="multiplier"/>.</returns>
+        public static Vector3 Multiply(this Vector3 value, float multiplier)
+            => value * multiplier;
+        
+        /// <summary>
+        /// Multiplies this <see cref="Vector3"/> by the given <see cref="int"/> <see cref="multiplier"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="multiplier">The <see cref="int"/> value to multiply by.</param>
+        /// <returns>The product of <see cref="value"/> and <see cref="multiplier"/>.</returns>
+        public static Vector3 Multiply(this Vector3 value, int multiplier)
+            => value * multiplier;
+        
+        /// <summary>
+        /// Divides this <see cref="Vector3"/> by the given <see cref="float"/> <see cref="divisor"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="divisor">The <see cref="float"/> value to divide by.</param>
+        /// <returns>The quotient of <see cref="value"/> and <see cref="divisor"/>.</returns>
+        public static Vector3 Divide(this Vector3 value, float divisor)
+            => value * divisor;
+        
+        /// <summary>
+        /// Divides this <see cref="Vector3"/> by the given <see cref="int"/> <see cref="divisor"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="divisor">The <see cref="int"/> value to divide by.</param>
+        /// <returns>The quotient of <see cref="value"/> and <see cref="divisor"/>.</returns>
+        public static Vector3 Divide(this Vector3 value, int divisor)
+            => value * divisor;
+
+        /// <summary>
+        /// Adds this <see cref="Vector3"/> to the given <see cref="Vector3"/> <see cref="additive"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="additive">The <see cref="Vector3"/> to add.</param>
+        /// <returns>The sum of <see cref="value"/> and <see cref="additive"/>.</returns>
+        public static Vector3 Add(this Vector3 value, Vector3 additive)
+            => value + additive;
+
+        /// <summary>
+        /// Subtracts the given <see cref="Vector3"/> <see cref="subtraction"/> from this <see cref="Vector3"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="Vector3"/>.</param>
+        /// <param name="subtraction">The <see cref="Vector3"/> to subtract from this <see cref="value"/>.</param>
+        /// <returns>The difference between <see cref="value"/> and <see cref="subtraction"/>.</returns>
+        public static Vector3 Subtract(this Vector3 value, Vector3 subtraction)
+            => value - subtraction;
     }
 }
