@@ -124,6 +124,31 @@ namespace Auxtensions
                 }
             }
         }
+
+        /// <summary> Remove items using a <see cref="Func{T1, T2}"/> to filter them out. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <param name="where"> The filter function. </param>
+        /// <param name="max">The maximum number of items to remove. The iterator will stop after this number.</param>
+        /// <typeparam name="T"> The type. </typeparam>
+        public static void RemoveWhere<T>(this IList<T> list, Func<T, bool> where, int max)
+        {
+            for (int i = list.Count - 1, count = 0; i >= 0 && count < max; i--, count++)
+            {
+                if (where?.Invoke(list[i]) == true)
+                {
+                    list.RemoveAt(i);
+                }
+            }
+        }
+        
+        /// <summary> Removes the first item using a <see cref="Func{T1, T2}"/> as filter criteria. </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <param name="where"> The filter function. </param>
+        /// <typeparam name="T"> The type. </typeparam>
+        public static void RemoveFirstWhere<T>(this IList<T> list, Func<T, bool> where)
+        {
+            RemoveWhere(list, where, 1);
+        }
         
         /// <summary> Rearranges all elements of this <see cref="IList{T}"/> with random ordering. </summary>
         /// <param name="list"> This <see cref="IList{T}"/>. </param>
