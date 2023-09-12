@@ -1,4 +1,4 @@
-# Auxtensions (1.1.4)
+# Auxtensions (1.1.5)
 
 #### Dev Notes / Announcements
 - (6/5/23) I'll be updating this repo soon to include a list of each extension along with its summary. This will make it easier to see what this repo can do. 

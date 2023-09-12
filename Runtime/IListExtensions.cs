@@ -27,6 +27,23 @@ namespace Auxtensions
             return list;
         }
 
+        /// <summary>
+        /// Creates a new <see cref="IList{T}"/> with elements of this <see cref="list"/> and the given <see cref="combineTarget"/>.
+        /// </summary>
+        /// <param name="list"> This <see cref="IList{T}"/>. </param>
+        /// <param name="combineTarget">The elements to combine to this <see cref="list"/>.</param>
+        /// <typeparam name="T"> The type. </typeparam>
+        /// <returns>A new <see cref="IList{T}"/> with the elements from both this <see cref="list"/> and the given <see cref="combineTarget"/>.</returns>
+        public static IList<T> CombineToNew<T>(this IList<T> list, IList<T> combineTarget)
+        {
+            var result = new List<T>();
+
+            for (int i = 0; i < list.Count; i++) result.Add(list[i]);
+            for (int i = 0; i < combineTarget.Count; i++) result.Add(combineTarget[i]);
+            
+            return result;
+        }
+
         /// <summary> Gets and removes the first element of this <see cref="IList{T}"/>, similar to a <see cref="Queue{T}"/>'s behaviour. </summary>
         /// <param name="list"> This <see cref="IList{T}"/>. </param>
         /// <typeparam name="T"> The type. </typeparam>
