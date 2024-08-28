@@ -253,6 +253,24 @@ namespace Auxtensions
             return list;
         }
         
+        /// <summary>
+        /// Iterates through all elements of <see cref="list"/>, invoking <see cref="manipulate"/> for each one, then
+        /// replaces the original item at the given index with the manipulated one. 
+        /// </summary>
+        /// <param name="list">This <see cref="IList{T}"/></param>
+        /// <param name="manipulate">The <see cref="Func{TParam,TResult}"/> to use to manipulate each item in <see cref="list"/></param>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <returns>The same list of elements with each item manipulated by the <see cref="manipulate"/> function.</returns>
+        public static IList<T> Manipulate<T>(this IList<T> list, Func<T, T> manipulate)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i] = manipulate.Invoke(list[i]);
+            }
+
+            return list;
+        }
+        
         #endregion
 
         #region Type Based Lists

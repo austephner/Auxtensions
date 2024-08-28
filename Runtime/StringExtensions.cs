@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Auxtensions
 {
@@ -91,6 +93,17 @@ namespace Auxtensions
         {
             return string.IsNullOrEmpty(value);
         }
+        
+        /// <summary>
+        /// Determines whether or not this <see cref="string"/> is null, empty, or whitespace. For those who want to be
+        /// extra sure.
+        /// </summary>
+        /// <param name="value">This <see cref="string"/>.</param>
+        /// <returns><c>True</c> if the string is null, empty, or whitespace.</returns>
+        public static bool IsNullOrEmptyOrWhitespace(this string value)
+        {
+            return string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value);
+        }
 
         /// <summary>
         /// Gets the last occurrence in this <see cref="string"/> after splitting it by the given <see cref="char"/> <see cref="separator"/>.
@@ -170,7 +183,7 @@ namespace Auxtensions
 
         /// <summary> Loads a resource using this <see cref="string"/> as a path. </summary>
         /// <param name="path">This <see cref="string"/> path.</param>
-        /// <typeparam name="T">The <see cref="Object"/> type to load.</typeparam>
+        /// <typeparam name="T">The <see cref="UnityEngine.Object"/> type to load.</typeparam>
         /// <returns>The resource if found.</returns>
         public static T LoadResource<T>(this string path) where T : Object
             => Resources.Load<T>(path);
@@ -188,5 +201,28 @@ namespace Auxtensions
         /// <returns>A <see cref="ResourceRequest"/> representing the asynchronous process.</returns>
         public static ResourceRequest LoadResourcesAsync<T>(this string path) where T : Object
             => Resources.LoadAsync<T>(path);
+        
+        /// <summary>
+        /// Converts this <see cref="value"/> into an enumeration value of the given <see cref="T"/> type. If the value
+        /// cannot be parsed, the <c>default</c> value is returned instead.
+        /// </summary>
+        /// <param name="value">The <see cref="string"/> to parse.</param>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <returns>The parsed type.</returns>
+        public static T ParseToEnum<T>(this string value) where T : struct, Enum
+        {
+            return Enum.TryParse(value, out T result) ? result : default;
+        }
+        
+        /// <summary>
+        /// Clamps this <see cref="value"/> string to the given <see cref="length"/>.
+        /// </summary>
+        /// <param name="value">This <see cref="string"/> to clamp.</param>
+        /// <param name="length">The length to clamp the string to.</param>
+        /// <returns>A string clamped to the given length.</returns>
+        public static string ClampLength(this string value, int length)
+        {
+            return value != null ? value.Length > length ? value.Substring(0, length) : value : null;
+        }
     }
 }

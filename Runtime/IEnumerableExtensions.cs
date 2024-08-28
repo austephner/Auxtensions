@@ -49,5 +49,28 @@ namespace Auxtensions
         {
             return new Queue<T>(enumerable);
         }
+        
+        /// <summary>
+        /// Splits this <see cref="enumerable"/> into multiple <see cref="IEnumerable{T}"/> with a max length of
+        /// <see cref="chunkSize"/>. 
+        /// </summary>
+        /// <param name="enumerable">This <see cref="IEnumerable{T}"/></param>
+        /// <param name="chunkSize">The max number of elements per chunk.</param>
+        /// <typeparam name="T">The type.</typeparam>
+        /// <returns>An <see cref="IEnumerable{T}"/> of chunked <see cref="IEnumerable{T}"/>.</returns>
+        /// <exception cref="ArgumentException">Chunk size must be greater than 0.</exception>
+        public static IEnumerable<IEnumerable<T>> ChunkBy<T>(this IEnumerable<T> enumerable, int chunkSize)
+        {
+            if (chunkSize <= 0)
+            {
+                throw new ArgumentException("Chunk size must be greater than 0.");
+            }
+
+            while (enumerable.Any())
+            {
+                yield return enumerable.Take(chunkSize);
+                enumerable = enumerable.Skip(chunkSize);
+            }
+        }
     }
 }
