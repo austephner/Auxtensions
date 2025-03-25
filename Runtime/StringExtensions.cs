@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -146,6 +147,30 @@ namespace Auxtensions
             }
 
             return result;
+        }
+        
+        /// <summary>
+        /// Parses this <see cref="string"/> to an <see cref="int"/>.
+        /// </summary>
+        public static int ToInt(this string value)
+        {
+            return int.Parse(value);
+        }
+        
+        /// <summary>
+        /// Parses this <see cref="string"/> to a <see cref="float"/>.
+        /// </summary>
+        public static float ToFloat(this string value)
+        {
+            return float.Parse(value);
+        }
+        
+        /// <summary>
+        /// Checks if this <see cref="string"/> matches a Regex expression.
+        /// </summary>
+        public static bool IsRegexMatch(this string value, string expression)
+        {
+            return Regex.IsMatch(value, expression);
         }
 
         /// <summary>
