@@ -8,5 +8,31 @@
     "name": "Austephner LLC",
     "email": "support@austephner.com",
     "url": "https://www.austephner.com"
+  },
+  "changelogUrl": "",
+  "changeHistory": {
+    "1.3.2": "License year update.",
+    "1.3.1": "Added MonoBehaviour extensions (e.g. InvokeWhenTrue) accessible via 'this' in-class.",
+    "1.3.0": "Added new string extensions.",
+    "1.2.0": "Added new extensions for various types.",
+    "1.1.5": "Added combination function for lists.",
+    "1.1.4": "Added RemoveWhere extensions for IList.",
+    "1.1.3": "Added common Vector3 operations for continuous value chaining.",
+    "1.1.2": "Added additional Vector3 extensions.",
+    "1.1.1": "Added ToQueue extension for IEnumerables.",
+    "1.1.0": "Added quaternion extensions, additional Vector3/float/object extensions.",
+    "1.0.22": "Added RandomWhere function.",
+    "1.0.21": "Fixed and added dictionary extensions.",
+    "1.0.20": "Fixed shuffle function.",
+    "1.0.19": "Fixed wrong list reference for list extension method.",
+    "1.0.18": "Fixed ShuffleToNew IList extension, added SwapElementsAt IList extension.",
+    "1.0.17": "Added clamp extensions to int.",
+    "1.0.16": "Added ToVector3XZ() for Vector2.",
+    "1.0.15": "Version increment, reformatted object extensions documentation.",
+    "1.0.13": "Added list, float, Vector3, string, generic, IList, and IEnumerable extensions. Updated quaternion documentation.",
+    "1.0.4": "Added string extensions.",
+    "1.0.2": "Reformatted comments, added new extension classes, changed some existing extension methods.",
+    "1.0.1": "Added game object and list extensions, shuffle fix, added TryFromJson.",
+    "1.0.0": "Initial Unity package release."
   }
 }
